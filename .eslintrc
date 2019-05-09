@@ -1,0 +1,29 @@
+{
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "plugins": ["flowtype"],
+  "parser": "babel-eslint",
+  "globals": {
+    "window": true,
+    "document": true
+  },
+  "rules": {
+    "comma-dangle": [2, "never"],
+    "padded-blocks": "off",
+    "arrow-parens": "off",
+    "default-case": "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "react/prefer-stateless-function": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/no-array-index-key": "off" // これがあるとmapのkeyを設定する時に`keys`と設定しないといけなく、`keys`にするとブラウザでエラーがでるので外す。
+  }
+}
