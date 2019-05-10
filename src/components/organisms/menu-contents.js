@@ -3,6 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 import MenuList from '../molecules/category-list';
 
+import listData from '../../constants/stub/menu/list';
+
 type Props = {
   data?: Array<Object>, // ページのリンクとページ名を受け取る
   currentPage?: string // 現在のページ名を受け取る
@@ -38,20 +40,7 @@ const MenuContents = (props: Props) => {
 };
 
 MenuContents.defaultProps = {
-  data: [
-    {
-      link: '/photo',
-      chargePage: 'PHOTO'
-    },
-    {
-      link: '/movie',
-      chargePage: 'MOVIE'
-    },
-    {
-      link: '/news',
-      chargePage: 'NEWS'
-    }
-  ],
+  data: listData.data,
   currentPage: 'PHOTO'
 };
 
