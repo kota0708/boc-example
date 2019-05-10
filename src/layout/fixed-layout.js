@@ -15,7 +15,12 @@ type Props = {
  */
 const FixedLayout = (props: Props) => {
   const { top, children, isHeaderModal } = props;
-  const style = isHeaderModal ? { top: `${top}px`, position: 'fixed' } : null;
+  const style = isHeaderModal ? {
+    top: `${top}px`,
+    position: 'fixed',
+    width: '100%',
+    height: '100%'
+  } : null;
   return (
     <div style={style}>
       {children}

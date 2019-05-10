@@ -58,6 +58,7 @@ class Layout extends Component<Props> {
     return null;
   }
 
+  // メニューを
   hasMenu() {
     return (this.props.isMenuOpen ? (
       <MenuWrap>

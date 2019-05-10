@@ -22,7 +22,7 @@ const Wrap = styled.div`
 `;
 
 const Heading = styled.div`
-  padding: 10px 0 0 20px;
+  padding: 12px 0 0 33px;
   margin-bottom: 34px;
 `;
 
