@@ -22,9 +22,8 @@ const MenuContents = (props: Props) => {
   const { data, currentPage } = props;
 
   const menuLists = data.map((r, i) => (
-    <ListWrap>
+    <ListWrap key={i}>
       <MenuList
-        key={i}
         link={r.link}
         chargePage={r.chargePage}
         currentPage={currentPage}

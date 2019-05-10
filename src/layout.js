@@ -3,11 +3,13 @@ import React, { Component, Fragment } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import styled from 'styled-components';
 import { clickMenu } from './actions/global';
 
 import GlobalStyle from './global-style';
 import Header from './components/organisms/header';
 import Footer from './components/organisms/footer';
+import Menu from './components/templates/menu';
 import FixedLayout from './layout/fixed-layout';
 
 type Props = {
@@ -16,6 +18,20 @@ type Props = {
   isMenuOpen: boolean, // headerのメニュー開閉用のflag
   pageName: string // 現在表示してるpageName
 };
+
+const MenuWrap = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 2;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+`;
+
 
 // header / footerここに記載
 class Layout extends Component<Props> {
@@ -42,6 +58,14 @@ class Layout extends Component<Props> {
     return null;
   }
 
+  hasMenu() {
+    return (this.props.isMenuOpen ? (
+      <MenuWrap>
+        <Menu />
+      </MenuWrap>
+    ) : null);
+  }
+
   render() {
     const {
       children,
@@ -57,6 +81,7 @@ class Layout extends Component<Props> {
           isMenuOpen={isMenuOpen}
           pageName={pageName}
         />
+        {this.hasMenu()}
         <FixedLayout top={this.state.currentScrollTop} isHeaderModal={isMenuOpen}>
           { children }
         </FixedLayout>

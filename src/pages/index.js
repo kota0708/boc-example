@@ -10,8 +10,6 @@ import Layout from '../layout';
 import Top from '../components/templates/top';
 import { setPageName } from '../actions/global';
 
-import MenuContents from '../components/organisms/menu-contents';
-
 type Props = {
   setPageName: () => void
 };
@@ -43,7 +41,6 @@ class IndexPage extends Component<Props> {
               </li>
             </ul>
           </nav>
-          <MenuContents />
           <Wrap>
             <Top />
           </Wrap>
