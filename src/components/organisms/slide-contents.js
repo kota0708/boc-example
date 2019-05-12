@@ -18,6 +18,8 @@ const SlideInner = styled.div`
 `;
 
 const ImageWrap = styled.div`
+  width: 100%;
+  min-width: 187px;
   margin-bottom: 12px;
 `;
 
@@ -44,7 +46,8 @@ const params = {
   beforeChange: (oldIndex, newIndex) => {
     console.log(oldIndex);
     console.log(newIndex);
-  }
+  },
+  variableWidth: true
 };
 
 const SlideContents = (props: Props) => {
