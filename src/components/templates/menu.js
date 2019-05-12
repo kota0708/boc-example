@@ -22,13 +22,13 @@ const Wrap = styled.div`
 `;
 
 const Heading = styled.div`
-  padding: 12px 0 0 33px;
+  padding-left: 18px;
   margin-bottom: 34px;
 `;
 
 const LogoWrap = styled.div`
-  width: 42px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
 `;
 
 const MenuWrap = styled.div`

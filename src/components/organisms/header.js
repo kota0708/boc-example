@@ -27,7 +27,7 @@ const HeaderInner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0 12px 33px;
+  padding-left: 18px;
 `;
 
 const HeaderTitleWrap = styled.div`
@@ -36,9 +36,12 @@ const HeaderTitleWrap = styled.div`
 `;
 
 const SymbolWrap = styled.h1`
-  width: 42px;
-  height: 60px;
-  margin-right: 36px;
+  width: 80px;
+  height: 80px;
+`;
+
+const DinCondensedWrap = styled.div`
+  margin-left: 13px;
 `;
 
 const ButtonWrap = styled.div`
@@ -69,10 +72,12 @@ const StyledLink = styled(Link)`
 const Header = (props: Props) => {
   const { isMenuOpen, pageName, onClick } = props;
   const dinCondensed = pageName.length === 0 ? null : (
-    <DinCondensed
-      text={pageName}
-      size={SIZE_SM}
-    />
+    <DinCondensedWrap>
+      <DinCondensed
+        text={pageName}
+        size={SIZE_SM}
+      />
+    </DinCondensedWrap>
   );
   return (
     <HeadeWrap isMenuOpen={isMenuOpen}>
