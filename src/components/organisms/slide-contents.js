@@ -39,17 +39,13 @@ const Description = styled.p`
   color: ${Color.Black};
 `;
 
-// // スライドのオプション
-// const params = {
-//   arrows: false,
-//   infinite: true,
-//   centerMode: true,
-//   adaptiveHeight: true,
-//   className: 'center',
-//   speed: 500,
-//   slidesToShow: 1, // 1フレーム時に表示する数
-//   slidesToScroll: true // スワイプの真偽
-// };
+// スライドのオプション
+const params = {
+  beforeChange: (oldIndex, newIndex) => {
+    console.log(oldIndex);
+    console.log(newIndex);
+  }
+};
 
 const SlideContents = (props: Props) => {
 
@@ -71,7 +67,7 @@ const SlideContents = (props: Props) => {
 
   return (
     <Fragment>
-      <Carousel>
+      <Carousel opt={params}>
         {carouselData}
       </Carousel>
     </Fragment>

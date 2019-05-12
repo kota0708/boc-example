@@ -4,51 +4,38 @@ import Slider from 'react-slick';
 
 type Props = {
   children: React.Node,
+  opt?: Object // スライドのオプションを受け取る
 };
 
-// スライドのオプション
-const params = {
+// スライドのデフォルトのオプション
+const defaultOpt = {
   arrows: false,
-  infinite: true,
   centerMode: true,
-  adaptiveHeight: true,
-  className: 'center',
-  speed: 500,
-  slidesToShow: 1, // 1フレーム時に表示する数
-  slidesToScroll: true // スワイプの真偽
+  adaptiveHeight: true
 };
 
 const Carousel = (props: Props) => {
 
-  const { children } = props;
+  const { children, opt } = props;
+
+  // デフォルトのオプションとpropsのオプションをマージ
+  const param = Object.assign(defaultOpt, opt);
 
   return (
     <Fragment>
-      <Slider {...params}>
+      <Slider {...param}>
         {children}
       </Slider>
     </Fragment>
   );
 };
 
-// Carousel.defaultProps = {
-//   data: [
-//     {
-//       url: '/images/photos/1.jpg',
-//       title: 'GOODS',
-//       description: 'BUMP OF CHICKEN\n2018 Winter Collection'
-//     },
-//     {
-//       url: '/images/photos/2.jpg',
-//       title: 'TOUR',
-//       description: 'BUMP OF CHICKEN\nTOUR 2019'
-//     },
-//     {
-//       url: '/images/photos/3.jpg',
-//       title: 'TOUR',
-//       description: 'OUR 2019\nAURORA'
-//     }
-//   ]
-// };
+Carousel.defaultProps = {
+  opt: {
+    speed: 500,
+    slidesToShow: 1, // 1フレーム時に表示する数
+    slidesToScroll: true // スワイプの真偽
+  }
+};
 
 export default Carousel;
