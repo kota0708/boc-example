@@ -9,7 +9,7 @@ import LogoName from '../atoms/logo/logo-name';
 
 import Sns from '../molecules/sns/sns-top';
 import Fade from '../molecules/slide/fade';
-import Carousel from '../molecules/slide/carousel';
+import SlideContnts from '../organisms/slide-contents';
 
 import News from '../organisms/news';
 
@@ -59,7 +59,7 @@ const Top = (props: Props) => {
         />
       </ContentsWrap>
       <ContentsWrap>
-        <Carousel
+        <SlideContnts
           data={carouselData} // カルーセルのデータの配列を受け取る
         />
       </ContentsWrap>
