@@ -14,7 +14,7 @@ import MenuContents from '../organisms/menu-contents';
 
 type Props = {
   listData?: Array<Object>, // ページのリンクとページ名を受け取る
-  carouselData?: Array<Object> // カルーセルのデータを受け取る
+  carouselData?: Array<Object> // トップのカルーセルのデータを受け取る
 };
 
 const Wrap = styled.div`

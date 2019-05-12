@@ -1,6 +1,7 @@
 // @flow
 import styled from 'styled-components';
 import React, { Fragment } from 'react';
+import carouselData from '../../constants/stub/top/carousel';
 import Color from '../../constants/styles/color';
 
 import nl2br from '../../util/nl2br';
@@ -9,7 +10,7 @@ import Carousel from '../molecules/slide/carousel';
 import Image from '../atoms/image';
 
 type Props = {
-  data?: Array<Object>
+  data?: Array<Object> // トピックスのデータを受け取る
 };
 
 const SlideInner = styled.div`
@@ -78,23 +79,7 @@ const SlideContents = (props: Props) => {
 };
 
 SlideContents.defaultProps = {
-  data: [
-    {
-      url: '/images/photos/1.jpg',
-      title: 'GOODS',
-      description: 'BUMP OF CHICKEN\n2018 Winter Collection'
-    },
-    {
-      url: '/images/photos/2.jpg',
-      title: 'TOUR',
-      description: 'BUMP OF CHICKEN\nTOUR 2019'
-    },
-    {
-      url: '/images/photos/3.jpg',
-      title: 'TOUR',
-      description: 'OUR 2019\nAURORA'
-    }
-  ]
+  data: carouselData.data
 };
 
 export default SlideContents;
