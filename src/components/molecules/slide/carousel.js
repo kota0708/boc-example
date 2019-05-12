@@ -19,11 +19,11 @@ const Carousel = (props: Props) => {
   const { children, opt } = props;
 
   // デフォルトのオプションとpropsのオプションをマージ
-  const param = Object.assign(defaultOpt, opt);
+  const params = Object.assign(defaultOpt, opt);
 
   return (
     <Fragment>
-      <Slider {...param}>
+      <Slider {...params}>
         {children}
       </Slider>
     </Fragment>
