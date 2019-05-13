@@ -9,7 +9,8 @@ import LogoName from '../atoms/logo/logo-name';
 
 import Sns from '../molecules/sns/sns-top';
 import Fade from '../molecules/slide/fade';
-import SlideContnts from '../organisms/slide-contents';
+import NewsHeading from '../molecules/news-heading';
+import GlobalSlide from '../organisms/slide/global-slide';
 
 import News from '../organisms/news';
 
@@ -31,12 +32,16 @@ const HeadingText = styled.p`
   letter-spacing: 0.0004px;
 `;
 
+const LogoNameWrap = styled.div`
+  margin-bottom: 4px;
+`;
+
 const ContentsWrap = styled.div`
   margin-bottom: 80px;
 `;
 
-const NewsWrap = styled.div`
-  padding: 0 25px;
+const NewsHeadingWrap = styled.div`
+  margin-bottom: 32px;
 `;
 
 const Top = (props: Props) => {
@@ -46,7 +51,9 @@ const Top = (props: Props) => {
   return (
     <Fragment>
       <Heading>
-        <LogoName />
+        <LogoNameWrap>
+          <LogoName />
+        </LogoNameWrap>
         <HeadingText>
           OFFICIAL WEBSITE
         </HeadingText>
@@ -59,16 +66,17 @@ const Top = (props: Props) => {
         />
       </ContentsWrap>
       <ContentsWrap>
-        <SlideContnts
+        <GlobalSlide
           data={carouselData} // カルーセルのデータの配列を受け取る
         />
       </ContentsWrap>
       <ContentsWrap>
-        <NewsWrap>
-          <News
-            data={newsData} // newsのデータの配列を受け取る
-          />
-        </NewsWrap>
+        <NewsHeadingWrap>
+          <NewsHeading />
+        </NewsHeadingWrap>
+        <News
+          data={newsData} // newsのデータの配列を受け取る
+        />
       </ContentsWrap>
       <Sns />
     </Fragment>

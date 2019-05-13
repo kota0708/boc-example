@@ -37,7 +37,28 @@ class IndexPage extends Component<Props> {
           <nav>
             <ul>
               <li>
+                <Link to="/news">News</Link>
+              </li>
+              <li>
+                <Link to="/news/pages">NewsDitail</Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="/discography">discography</Link>
+              </li>
+              <li>
+                <Link to="/live">Live</Link>
+              </li>
+              <li>
+                <Link to="/videos">Videos</Link>
+              </li>
+              <li>
                 <Link to="/photo" state={{ hoge: true }}>photo</Link>
+              </li>
+              <li>
+                <Link to="/goods">Goods</Link>
               </li>
             </ul>
           </nav>

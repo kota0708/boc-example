@@ -11,7 +11,6 @@ const FooterWrap = styled.footer`
 const FooterInner = styled.div`
   width: 100%;
   padding: 150px 25px;
-  background: url('/images/bg-aurora.png') center center no-repeat;
   background-size: cover;
 `;
 
@@ -21,10 +20,11 @@ const FooterText = styled.p`
   line-height: 1.71;
   letter-spacing: 0.004em;
   color: ${Color.GRAY};
+  margin-bottom: 40px;
 `;
 
 const LogoWrap = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 35px;
 `;
 
 const FooterCopy = styled.small`

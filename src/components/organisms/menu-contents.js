@@ -1,13 +1,14 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import MenuList from '../molecules/category-list';
+import CategoryList from '../molecules/category-list';
 
-import listData from '../../constants/stub/menu/list';
+import listData from '../../constants/stub/link/list';
 
 type Props = {
   data?: Array<Object>, // ページのリンクとページ名を受け取る
-  currentPage?: string // 現在のページ名を受け取る
+  currentPage?: string, // 現在のページ名を受け取る
+  onClose: () => void // 閉じるよう
 };
 
 const ListWrap = styled.div`
@@ -19,14 +20,15 @@ const ListWrap = styled.div`
 `;
 
 const MenuContents = (props: Props) => {
-  const { data, currentPage } = props;
+  const { data, currentPage, onClose } = props;
 
   const menuLists = data.map((r, i) => (
     <ListWrap key={i}>
-      <MenuList
+      <CategoryList
         link={r.link}
-        chargePage={r.chargePage}
+        pageName={r.pageName}
         currentPage={currentPage}
+        onClose={onClose}
       />
     </ListWrap>
   ));

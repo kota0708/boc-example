@@ -3,10 +3,10 @@ import React from 'react';
 import styled from 'styled-components';
 import Color from '../../../constants/styles/color';
 
-import Twitter from '../../atoms/sns/twitter';
-import Line from '../../atoms/sns/line';
-import InstaGram from '../../atoms/sns/instagram';
-import YouTube from '../../atoms/sns/youtube';
+import Twitter from '../../atoms/icons/twitter';
+import Line from '../../atoms/icons/line';
+import InstaGram from '../../atoms/icons/instagram';
+import YouTube from '../../atoms/icons/youtube';
 
 const Wrap = styled.div`
   width: 100%;

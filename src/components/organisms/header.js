@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 import LogoSymbol from '../atoms/logo/logo-symbol';
 import DinCondensed from '../atoms/text/din-condensed';
 import MenuButton from '../molecules/menu-button';
-import { SIZE_SM } from '../../constants/styles/size';
+import { SIZE_SM, SIZE_LG } from '../../constants/styles/size';
 // 全部いっぺんに読み込みできる方法。（あまりよろしくない。）
 // import easing from '../../constants/styles/easing';
 // console.log(easing.easeInQuad);
@@ -27,7 +27,7 @@ const HeaderInner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 18px;
+  padding-left: 10px;
 `;
 
 const HeaderTitleWrap = styled.div`
@@ -38,6 +38,11 @@ const HeaderTitleWrap = styled.div`
 const SymbolWrap = styled.h1`
   width: 80px;
   height: 80px;
+
+  &.large {
+    width: 140px;
+    height: 140px;
+  }
 `;
 
 const DinCondensedWrap = styled.div`
@@ -71,24 +76,34 @@ const StyledLink = styled(Link)`
 // ヘッダーコンポーネント
 const Header = (props: Props) => {
   const { isMenuOpen, pageName, onClick } = props;
+
+  // topの場合シンボルの大きさを変える
+  const symbol = pageName.length === 0 ? (
+    <SymbolWrap className={SIZE_LG}>
+      <LogoSymbol />
+    </SymbolWrap>
+  ) : (
+    <SymbolWrap>
+      <LogoSymbol />
+    </SymbolWrap>
+  );
+
   const dinCondensed = pageName.length === 0 ? null : (
-    <DinCondensedWrap>
-      <DinCondensed
-        text={pageName}
-        size={SIZE_SM}
-      />
-    </DinCondensedWrap>
+    <DinCondensed
+      text={pageName}
+      size={SIZE_SM}
+    />
   );
   return (
     <HeadeWrap isMenuOpen={isMenuOpen}>
       <HeaderInner>
         <HeaderTitleWrap>
           <StyledLink to="/">
-            <SymbolWrap>
-              <LogoSymbol />
-            </SymbolWrap>
+            {symbol}
           </StyledLink>
-          {dinCondensed}
+          <DinCondensedWrap>
+            {dinCondensed}
+          </DinCondensedWrap>
         </HeaderTitleWrap>
         <ButtonWrap>
           <ButtonInner>

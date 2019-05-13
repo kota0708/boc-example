@@ -1,21 +1,20 @@
 /* @flow */
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import Color from '../../../constants/styles/color';
-import nl2br from '../../../util/nl2br';
-import Image from '../../atoms/image';
+// import Image from '../../atoms/image';
+import FitImage from '../../atoms/images/fit-image';
+import CloseButton from '../../atoms/buttons/close-button';
+import ControlPlay from '../../atoms/icons/control-play';
+import PhotoPageIndicators from '../../molecules/photo-page-indicators';
 
 type Props = {
-  title: string, // タイトル
   index: number, // 表示させるURLIndex
   photoData: Object,
   onClose: () => void;
 };
 
-// ----------------------------------------------------------
-// todo: ここから下を変更すること！！
-// ----------------------------------------------------------
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -26,57 +25,75 @@ const Container = styled.div`
   z-index: 5;
 `;
 
-const Title = styled.h2`
-  color: #fff;
-  font-size: 2.0rem;
-  margin-bottom: 20%;
-`;
-
-const Text = styled.p`
-  color: #fff;
-  font-size: 1.4rem;
-`;
-
-const CloseBtn = styled.button`
+const CloseButtonContainer = styled.div`
   position: absolute;
-  top: 5%;
-  right: 5%;
-  color: #fff;
-  outline: none;
-  font-size: 1.8rem;
+  top: 25px;
+  // 余白（25）/デザインwidth(375)
+  right: 6.67%;
 `;
 
-const PhotoDetail = (props: Props) => {
+const ImageContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 100%;
+`;
+
+const PageIndicatorContainer = styled.div`
+  position: absolute;
+  // 余白（25）/デザインheight(580)
+  bottom: 3.8%;
+  // 余白（23）/デザインwidth(375)
+  right: 6.67%;
+`;
+
+const ControlContainer = styled.div`
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  // 余白（25）/デザインheight(580)
+  bottom: 3.67%;
+  left: 25px;
+`;
+
+const ControlInner = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+`;
+
+const PhotoDetail = memo((props: Props) => {
   const {
     photoData,
-    title,
     index,
     onClose
   } = props;
-  const { date, place, photos } = photoData;
+  const { photos } = photoData;
   const url = `/images/photos/${photos[index].filename}`;
   return (
     <Container>
-      <Title>{nl2br(title)}</Title>
-      <Image imgSrc={url} />
-      <Text>{date}</Text>
-      <Text>{place}</Text>
-      <div>
-        <Text>
-          {index}
-          /
-          {photos.length}
-        </Text>
-      </div>
-      <CloseBtn
-        onClick={event => {
-          event.preventDefault();
-          onClose();
-        }}
-      >
-        閉じる
-      </CloseBtn>
+      <ImageContainer>
+        <FitImage url={url} />
+      </ImageContainer>
+      <PageIndicatorContainer>
+        <PhotoPageIndicators current={index + 1} length={photos.length} />
+      </PageIndicatorContainer>
+      <ControlContainer>
+        <ControlInner>
+          <ControlPlay />
+        </ControlInner>
+      </ControlContainer>
+      <CloseButtonContainer>
+        <CloseButton
+          onClick={() => {
+            onClose();
+          }}
+        />
+      </CloseButtonContainer>
     </Container>
   );
-};
+}, (prevProps, nextProps) => prevProps !== nextProps);
+
 export default PhotoDetail;

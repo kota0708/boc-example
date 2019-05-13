@@ -1,20 +1,24 @@
 /* @flow */
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 import carouselData from '../../constants/stub/top/carousel';
-import listData from '../../constants/stub/menu/list';
+import listData from '../../constants/stub/link/list';
+import easeOutQuint from '../../constants/styles/easing/ease-out-quint';
 
 import LogoSymbol from '../atoms/logo/logo-symbol';
 
 import Sns from '../molecules/sns/sns-top';
-import SlideContnts from '../organisms/slide-contents';
+import GlobalSlide from '../organisms/slide/global-slide';
 
 import MenuContents from '../organisms/menu-contents';
 
 type Props = {
   listData?: Array<Object>, // ページのリンクとページ名を受け取る
-  carouselData?: Array<Object> // トップのカルーセルのデータを受け取る
+  carouselData?: Array<Object>, // トップのカルーセルのデータを受け取る
+  onClose: () => void, // 閉じるよう
+  currentPageName: string
 };
 
 const Wrap = styled.div`
@@ -22,8 +26,18 @@ const Wrap = styled.div`
 `;
 
 const Heading = styled.div`
-  padding-left: 18px;
+  padding-left: 10px;
   margin-bottom: 34px;
+`;
+
+const StyledLink = styled(Link)`
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ${easeOutQuint};
+  opacity: 1;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const LogoWrap = styled.div`
@@ -39,7 +53,7 @@ const MenuWrap = styled.div`
 
 const MenuInner = styled.div`
   /* 284 / 375 * 100% */
-  width: 75.7333333%;
+  width: 75.73%;
 `;
 
 const CarouselWrap = styled.div`
@@ -48,24 +62,33 @@ const CarouselWrap = styled.div`
 
 const Menu = (props: Props) => {
 
-  const { listData, carouselData } = props;
+  const {
+    listData,
+    carouselData,
+    onClose,
+    currentPageName
+  } = props;
 
   return (
     <Wrap>
       <Heading>
-        <LogoWrap>
-          <LogoSymbol />
-        </LogoWrap>
+        <StyledLink to="/">
+          <LogoWrap>
+            <LogoSymbol />
+          </LogoWrap>
+        </StyledLink>
       </Heading>
       <MenuWrap>
         <MenuInner>
           <MenuContents
             data={listData} // メニューのリンクと名前を受け取る
+            onClose={onClose}
+            currentPage={currentPageName}
           />
         </MenuInner>
       </MenuWrap>
       <CarouselWrap>
-        <SlideContnts
+        <GlobalSlide
           data={carouselData} // カルーセルのデータの配列を受け取る
         />
       </CarouselWrap>

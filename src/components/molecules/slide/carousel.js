@@ -1,6 +1,7 @@
 // @flow
 import React, { Fragment } from 'react';
 import Slider from 'react-slick';
+import { assign } from 'lodash';
 
 type Props = {
   children: React.Node,
@@ -19,7 +20,8 @@ const Carousel = (props: Props) => {
   const { children, opt } = props;
 
   // デフォルトのオプションとpropsのオプションをマージ
-  const params = Object.assign(defaultOpt, opt);
+  // const params = Object.assign(defaultOpt, opt);
+  const params = assign(defaultOpt, opt);
 
   return (
     <Fragment>

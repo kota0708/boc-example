@@ -27,7 +27,7 @@ const MenuWrap = styled.div`
   left: 0;
   background-color: #fff;
   z-index: 2;
-  overflow: hidden;
+  overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 `;
@@ -58,15 +58,6 @@ class Layout extends Component<Props> {
     return null;
   }
 
-  // メニューを
-  hasMenu() {
-    return (this.props.isMenuOpen ? (
-      <MenuWrap>
-        <Menu />
-      </MenuWrap>
-    ) : null);
-  }
-
   render() {
     const {
       children,
@@ -74,6 +65,17 @@ class Layout extends Component<Props> {
       isMenuOpen,
       pageName
     } = this.props;
+
+    // グローバルメニューを表示、非表示をさせる
+    const hasMenu = (this.props.isMenuOpen ? (
+      <MenuWrap>
+        <Menu
+          onClose={clickMenu}
+          currentPageName={pageName}
+        />
+      </MenuWrap>
+    ) : null);
+
     return (
       <Fragment>
         <GlobalStyle />
@@ -82,9 +84,11 @@ class Layout extends Component<Props> {
           isMenuOpen={isMenuOpen}
           pageName={pageName}
         />
-        {this.hasMenu()}
+        {hasMenu}
         <FixedLayout top={this.state.currentScrollTop} isHeaderModal={isMenuOpen}>
-          { children }
+          <main>
+            { children }
+          </main>
         </FixedLayout>
         <Footer />
       </Fragment>

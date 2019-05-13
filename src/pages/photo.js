@@ -16,7 +16,6 @@ import {
   makeSelectedAlbum,
   makeIsModal
 } from '../selectors/photo';
-import photoListData from '../constants/stub/photo-list-data';
 
 type Props = {
   openPhotoDetail: () => void,
@@ -56,24 +55,21 @@ class Photo extends Component<Props> {
           title="BUMP OF CHICKEN official website"
         />
         <Layout>
-          <main>
-            <PhotoTemplate openDetail={openPhotoDetail} />
-            <CSSTransition
-              in={isModal}
-              mountOnEnter
-              unmountOnExit
-              timeout={600}
-              classNames="fade"
-              onExited={() => resetModal()}
-            >
-              <PhotoDetail
-                title={photoListData.title}
-                photoData={selectedAlbum}
-                onClose={closePhotoDetail}
-                index={selectedIndex}
-              />
-            </CSSTransition>
-          </main>
+          <PhotoTemplate openDetail={openPhotoDetail} />
+          <CSSTransition
+            in={isModal}
+            mountOnEnter
+            unmountOnExit
+            timeout={600}
+            classNames="fade"
+            onExited={() => resetModal()}
+          >
+            <PhotoDetail
+              photoData={selectedAlbum}
+              onClose={closePhotoDetail}
+              index={selectedIndex}
+            />
+          </CSSTransition>
         </Layout>
       </div>
     );

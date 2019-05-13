@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { Link } from 'gatsby';
+import { navigate } from 'gatsby';
 import styled from 'styled-components';
 import { SIZE_MD } from '../../constants/styles/size';
 import Color from '../../constants/styles/color';
@@ -8,16 +8,17 @@ import Color from '../../constants/styles/color';
 import DinCondensed from '../atoms/text/din-condensed';
 
 type Props = {
-   link?: string, // linkのurlを受け取る
-   chargePage?: string, // 自分が表示するページの名前を受け取る
-   currentPage?: string // 現在のページの名前を受け取る
+  link: string, // linkのurlを受け取る
+  pageName: string, // 自分が表示するページの名前を受け取る
+  currentPage: string, // 現在のページの名前を受け取る
+  onClose: () => void // 閉じるよう
 };
 
 const List = styled.li`
   position: relative;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   width: 100%;
   display: block;
   text-decoration: none;
@@ -63,40 +64,33 @@ const Gradation = styled.span`
 `;
 
 const CategoryList = (props: Props) => {
-
   const {
     link,
-    chargePage,
-    currentPage
+    pageName,
+    currentPage,
+    onClose
   } = props;
-
-  // 現在表示しているページと同じ名前かどうかで表示を変える
-  const hasList = (chargePage === currentPage)
-    ? (
-      <StyledLink to={link}>
-        <DinCondensed size={SIZE_MD} text={chargePage} />
-
-        {/* ここのクラスネームを使って親でアニメーション定義する */}
-        <Gradation className="gradation" />
-      </StyledLink>
-    )
-    : (
-      <StyledLink className="hover" to={link}>
-        <DinCondensed size={SIZE_MD} text={chargePage} />
-      </StyledLink>
-    );
-
+  const isCurrent = pageName === currentPage;
+  const hoverClassName = isCurrent ? '' : 'hover';
+  const gradation = isCurrent ? (
+    <Gradation className="gradation" />
+  ) : null;
   return (
     <List>
-      {hasList}
+      <StyledLink
+        className={hoverClassName}
+        href="#"
+        onClick={(event) => {
+          event.preventDefault();
+          onClose();
+          navigate(link);
+        }}
+      >
+        <DinCondensed size={SIZE_MD} text={pageName} />
+        {gradation}
+      </StyledLink>
     </List>
   );
-};
-
-CategoryList.defaultProps = {
-  link: '/photo',
-  chargePage: 'PHOTO',
-  currentPage: 'test'
 };
 
 export default CategoryList;

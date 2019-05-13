@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Color from '../../constants/styles/color';
+import { SIZE_XSM } from '../../constants/styles/size';
+
+import DinCondensed from '../atoms/text/din-condensed';
 
 type Props = {
   date?: string, // 日付を受け取る
@@ -27,32 +30,32 @@ const HeadingWrap = styled.div`
   width: 100%;
   margin-bottom: 9px;
   position: relative;
-
-  ::after {
-    content: '';
-    width: 100%;
-    height: 1px;
-    background-color: ${Color.GRAY};
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto 0;
-    z-index: -1;
-  }
 `;
 
 const HeadingInner = styled.div`
-  display: inline-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: ${Color.GRAY};
-  background-color: ${Color.WHITE};
-  padding-right: 19px;
-  flex-wrap: wrap;
 `;
+
+const HeadingContents = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 
 const HeadingDate = styled.p`
   margin-right: 11px;
 `;
+
+const HeadingLine = styled.span`
+  width: 100%;
+  height: 1px;
+  margin-left: 19px;
+  background-color: ${Color.GRAY};
+`;
+
 
 const HeadingCategory = styled.p`
   &.gray {
@@ -66,6 +69,7 @@ const HeadingCategory = styled.p`
 
 const Description = styled.h2`
   font-weight: normal;
+  color: ${Color.BLACK};
 
   &.small {
     font-size: 14px;
@@ -91,8 +95,15 @@ const NewsList = (props: Props) => {
     <Content>
       <HeadingWrap>
         <HeadingInner>
-          <HeadingDate>{date}</HeadingDate>
-          <HeadingCategory className={categoryColor}>{category}</HeadingCategory>
+          <HeadingContents>
+            <HeadingDate>
+              <DinCondensed size={SIZE_XSM} text={date} />
+            </HeadingDate>
+            <HeadingCategory className={categoryColor}>
+              <DinCondensed size={SIZE_XSM} text={category} />
+            </HeadingCategory>
+          </HeadingContents>
+          <HeadingLine />
         </HeadingInner>
       </HeadingWrap>
       <Description className={descriptionSize}>{description}</Description>

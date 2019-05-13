@@ -1,13 +1,13 @@
 // @flow
 import styled from 'styled-components';
 import React, { Fragment } from 'react';
-import carouselData from '../../constants/stub/top/carousel';
-import Color from '../../constants/styles/color';
 
-import nl2br from '../../util/nl2br';
-import Carousel from '../molecules/slide/carousel';
+import carouselData from '../../../constants/stub/top/carousel';
+import Color from '../../../constants/styles/color';
+import nl2br from '../../../util/nl2br';
 
-import Image from '../atoms/image';
+import Image from '../../atoms/image';
+import Carousel from '../../molecules/slide/carousel';
 
 type Props = {
   data?: Array<Object> // トピックスのデータを受け取る
@@ -43,14 +43,10 @@ const Description = styled.p`
 
 // スライドのオプション
 const params = {
-  beforeChange: (oldIndex, newIndex) => {
-    console.log(oldIndex);
-    console.log(newIndex);
-  },
   variableWidth: true
 };
 
-const SlideContents = (props: Props) => {
+const GlobalSlide = (props: Props) => {
 
   const { data } = props;
 
@@ -77,8 +73,8 @@ const SlideContents = (props: Props) => {
   );
 };
 
-SlideContents.defaultProps = {
+GlobalSlide.defaultProps = {
   data: carouselData.data
 };
 
-export default SlideContents;
+export default GlobalSlide;

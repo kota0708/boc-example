@@ -11,6 +11,13 @@ type Props = {
 const Span = styled.span`
   font-family: 'URWDINCond';
 
+  &.Xsmall {
+    font-size: 1.6rem;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+    letter-spacing: 0;
+  }
+
   &.small {
     font-size: 2.4rem;
     font-size: 24px;
