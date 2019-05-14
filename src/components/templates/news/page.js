@@ -39,7 +39,7 @@ const NewsPage = (props: Props) => {
           categoryColor="black"
           description={pageData.title}
           descriptionSize={SIZE_LG}
-          link="/"
+          link="/news" // ここのurlもいずれ動的なurlになる
         />
       </NewListWrap>
       <ContentsWrap
