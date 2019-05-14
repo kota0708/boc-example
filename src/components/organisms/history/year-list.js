@@ -1,17 +1,8 @@
 /* @flow */
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-// import { Link } from 'gatsby';
 
-// import carouselData from '../../constants/stub/top/carousel';
-// import easeOutQuint from '../../constants/styles/easing/ease-out-quint';
-
-// import LogoSymbol from '../atoms/logo/logo-symbol';
-
-// import Sns from '../molecules/sns/sns-top';
 import Year from '../../molecules/history/yaer';
-
-// import MenuContents from '../organisms/menu-contents';
 
 type Props = {
   years?: Array<number>, // 年の配列を受け取る
@@ -21,6 +12,10 @@ type Props = {
 
 const Wrap = styled.div`
   margin-bottom: 14px;
+
+  :last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const YearList = (props: Props) => {
