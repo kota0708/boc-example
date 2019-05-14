@@ -16,7 +16,9 @@ import easeOutQuint from '../../constants/styles/easing/ease-out-quint';
 type Props = {
   isMenuOpen: boolean, // メニュー開閉用のflag
   onClick: () => void, // メニュークリック時
-  pageName: string
+  pageName: string,
+  isSubPage: boolean, // 子のページかどうか
+  parentUrl: string // 親ページのLink先（to）
 };
 
 const HeadeWrap = styled.header`
@@ -75,7 +77,16 @@ const StyledLink = styled(Link)`
 
 // ヘッダーコンポーネント
 const Header = (props: Props) => {
-  const { isMenuOpen, pageName, onClick } = props;
+  const {
+    isMenuOpen,
+    pageName,
+    onClick,
+    isSubPage,
+    parentUrl
+  } = props;
+
+  console.log(`isSubPage : ${isSubPage}`);
+  console.log(`parentUrl : ${parentUrl}`);
 
   // topの場合シンボルの大きさを変える
   const symbol = pageName.length === 0 ? (

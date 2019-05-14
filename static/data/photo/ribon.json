@@ -1,0 +1,45 @@
+{
+  "title": "「リボン」スタジオライブ生配信",
+  "id": "ribon",
+  "data": [
+    {
+      "date": "",
+      "place": "福岡県 マリンメッセ福岡",
+      "id": "27",
+      "photos": [
+        {
+          "id": "0",
+          "filename": "51.jpg"
+        },
+        {
+          "id": "1",
+          "filename": "52.jpg"
+        },
+        {
+          "id": "2",
+          "filename": "53.jpg"
+        },
+        {
+          "id": "3",
+          "filename": "54.jpg"
+        },
+        {
+          "id": "4",
+          "filename": "55.jpg"
+        },
+        {
+          "id": "5",
+          "filename": "56.jpg"
+        },
+        {
+          "id": "7",
+          "filename": "57.jpg"
+        },
+        {
+          "id": "8",
+          "filename": "58.jpg"
+        }
+      ]
+    }
+  ]
+}

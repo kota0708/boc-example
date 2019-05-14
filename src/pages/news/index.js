@@ -1,44 +1,51 @@
 /* @flow */
 
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Seo from '../../seo';
 import Layout from '../../layout';
-import { setPageName } from '../../actions/global';
+import { init } from '../../actions/global';
 
 import NewsTop from '../../components/templates/news/top';
 
 type Props = {
-  setPageName: () => void
+  init: () => void
 };
 
-class News extends Component<Props> {
+const News = (props: Props) => {
+  const { init } = props;
+  console.log('news ---->');
+  console.log(props);
+  useEffect(() => {
+    init({
+      pageName: 'NEWS',
+      isSubPage: false,
+      parentUrl: ''
+    });
+    // unmount
+    return () => null;
+  }, []);
 
-  componentDidMount() {
-    this.props.setPageName('NEWS');
-  }
+  return (
+    <div>
+      <Seo
+        description="BUMP OF CHICKENオフィシャルサイト。ニュース、ディスコグラフィー、スタッフダイアリー、GOODS、PICSなど。"
+        lang="ja"
+        title="NEWS | BUMP OF CHICKEN official website"
+      />
+      <Layout>
+        <NewsTop />
+      </Layout>
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div>
-        <Seo
-          description="BUMP OF CHICKENオフィシャルサイト。ニュース、ディスコグラフィー、スタッフダイアリー、GOODS、PICSなど。"
-          lang="ja"
-          title="NEWS | BUMP OF CHICKEN official website"
-        />
-        <Layout>
-          <NewsTop />
-        </Layout>
-      </div>
-    );
-  }
-}
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = dispatch => bindActionCreators({
-  setPageName
+  init
 }, dispatch);
 
 export default connect(

@@ -3,15 +3,16 @@ import React from 'react';
 import styled from 'styled-components';
 import Color from '../../../constants/styles/color';
 
-import photoListData from '../../../constants/stub/photo-list-data';
+// import photoListData from '../../../constants/stub/photo-list-data';
 import PhotoList from '../../organisms/photo-list';
 import nl2br from '../../../util/nl2br';
 
 type Props = {
-  title?: string, // アルバムのタイトル
-  amount?: Number, // 写真の数を受け取る
-  photo?: Object, // 写真のデータを受け取る
-  openDetail: () => void
+  title: string, // アルバムのタイトル
+  amount: Number, // 写真の数を受け取る
+  photo: Object, // 写真のデータを受け取る
+  openDetail: () => void,
+  liveId: string // live id
 };
 
 const Wrap = styled.div`
@@ -69,15 +70,16 @@ const PhotoTemplate = (props: Props) => {
     photo,
     amount,
     title,
-    openDetail
+    openDetail,
+    liveId
   } = props;
-  const photoList = (photo && photo.data) ? photo.data.map((r, i) => (
-    <PhotoListWrap key={i}>
+  const photoList = photo ? photo.map(r => (
+    <PhotoListWrap key={r.id}>
       <PhotoList
         date={r.date}
         place={r.place}
         photos={r.photos}
-        liveId={photoListData.id}
+        liveId={liveId}
         albumId={r.id}
         openDetail={openDetail}
       />
@@ -101,12 +103,6 @@ const PhotoTemplate = (props: Props) => {
       </ContentsWrap>
     </Wrap>
   );
-};
-
-PhotoTemplate.defaultProps = {
-  title: photoListData.title,
-  amount: 245,
-  photo: photoListData
 };
 
 export default PhotoTemplate;

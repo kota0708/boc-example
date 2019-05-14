@@ -5,6 +5,7 @@ import pageData from '../../../constants/stub/news/page';
 import { SIZE_LG } from '../../../constants/styles/size';
 
 import NewsList from '../../molecules/news-list';
+import Share from '../../molecules/sns/sns-share';
 
 
 type Props = {
@@ -25,6 +26,11 @@ const ContentsWrap = styled.div`
   font-size: 1.4rem;
   line-height: 1.71;
   letter-spacing: 0.0004em;
+  padding: 0 25px;
+  margin-bottom: 80px;
+`;
+
+const ShareWrap = styled.div`
   padding: 0 25px;
 `;
 
@@ -47,6 +53,9 @@ const NewsPage = (props: Props) => {
           __html: pageData.body
         }}
       />
+      <ShareWrap>
+        <Share />
+      </ShareWrap>
     </Wrap>
   );
 };

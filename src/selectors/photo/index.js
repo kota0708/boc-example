@@ -1,27 +1,34 @@
 import { createSelector } from 'reselect';
 
-import photoListData from '../../constants/stub/photo-list-data';
-
 const selectPhoto = state => state.photo;
 
-const getAlbumData = id => {
-  const { data } = photoListData;
-  const albumData = data.filter(d => d.id === id);
-  return albumData.length > 0 ? albumData[0] : null;
-};
-
+/**
+ * モーダル表示かどうかを返す
+ * @returns {boolean}
+ */
 const makeIsModal = () => createSelector(selectPhoto, state => state.isModal);
 
 /**
  * アルバム情報返す
  * @returns {object}
  */
-const makeSelectedAlbum = () => createSelector(
+const makeSelectedLiveAlbum = () => createSelector(
   selectPhoto,
   state => {
-    const { albumId } = state;
-    return getAlbumData(albumId);
+    const { albumId, listData } = state;
+    // const liveData = getAlbumData(liveId);
+    return listData ? listData.data.filter(d => d.id === albumId)[0] : null;
   }
+);
+
+
+/**
+ * live idを返す
+ * @returns {string}
+ */
+const makeSelectLiveId = () => createSelector(
+  selectPhoto,
+  state => state.liveId
 );
 
 /**
@@ -31,19 +38,35 @@ const makeSelectedAlbum = () => createSelector(
 const makeSelectPhotoIndex = () => createSelector(
   selectPhoto,
   state => {
-    const { selectedPhotoId, albumId } = state;
-    if (albumId.length === 0) {
+    const {
+      selectedPhotoId, albumId, listData
+    } = state;
+    if (albumId.length === 0 || selectedPhotoId.length === 0) {
       return -1;
     }
-    const albumData = getAlbumData(albumId);
-    const { photos } = albumData;
-    return photos.findIndex(p => p.id === selectedPhotoId);
+    // const liveData = getAlbumData(liveId);
+    const { data } = listData;
+    const photo = data.filter(d => d.id === albumId);
+    if (photo.length === 0) {
+      return -1;
+    }
+    return photo[0].photos.findIndex(p => p.id === selectedPhotoId);
   }
 );
 
+/**
+ * ローディング状態を返す
+ * @returns {boolean}
+ */
+const makeSelectIsLoading = () => createSelector(selectPhoto, state => state.isLoading);
+
 /* eslint-disable import/prefer-default-export */
 export {
+  makeSelectLiveId,
   makeSelectPhotoIndex,
-  makeSelectedAlbum,
-  makeIsModal
+  makeIsModal,
+  makeSelectedLiveAlbum,
+  // makeSelectListData,
+  makeSelectIsLoading
+  // makeSelectAlbumData
 };

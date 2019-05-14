@@ -2,50 +2,45 @@
 import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
 import Seo from '../seo';
 import Layout from '../layout';
 import { init } from '../actions/global';
 
-import ProfileTemplate from '../components/templates/profile';
+import HistoryTemplate from '../components/templates/history';
 
 type Props = {
   init: () => void
 };
 
-const Wrap = styled.div`
-  background-color: #bcc5cc;
-`;
-
-const Profile = (props: Props) => {
+const History = (props: Props) => {
   const {
     init
   } = props;
 
   useEffect(() => {
     init({
-      pageName: 'PROFILE',
+      pageName: 'HISTORY',
       isSubPage: false,
       parentUrl: ''
     });
     // unmount
     return () => null;
   }, []);
+
   return (
-    <Wrap>
+    <div>
       <Seo
         description="BUMP OF CHICKENオフィシャルサイト。ニュース、ディスコグラフィー、スタッフダイアリー、GOODS、PICSなど。"
         lang="ja"
-        title="PROFILE | BUMP OF CHICKEN official website"
+        title="History | BUMP OF CHICKEN official website"
       />
       <Layout>
-        <ProfileTemplate />
+        <HistoryTemplate />
       </Layout>
-    </Wrap>
+    </div>
   );
 };
-
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -55,4 +50,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Profile);
+)(History);

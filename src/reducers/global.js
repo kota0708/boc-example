@@ -1,16 +1,20 @@
 /* @flow */
 import produce from 'immer';
 
-import { CLICK_MENU, SET_PAGE_NAME } from '../actions/global';
+import { CLICK_MENU, INIT, SET_PAGE_NAME } from '../actions/global';
 
 type State = {
   isOpen: boolean,
-  pageName: string
+  pageName: string,
+  isSubPage: boolean, // 中ページかどうか
+  parentUrl: string // 親ページのURL
 };
 
 const initialState: State = {
   isOpen: false,
-  pageName: ''
+  pageName: '',
+  isSubPage: false,
+  parentUrl: ''
 };
 
 export default (state = initialState, action) => produce(state,
@@ -21,6 +25,11 @@ export default (state = initialState, action) => produce(state,
         break;
       case SET_PAGE_NAME:
         draft.pageName = action.payload.pageName;
+        break;
+      case INIT:
+        draft.pageName = action.payload.pageName;
+        draft.isSubPage = action.payload.isSubPage;
+        draft.parentUrl = action.payload.parentUrl;
         break;
     }
   });

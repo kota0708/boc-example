@@ -1,42 +1,49 @@
 /* @flow */
-
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Seo from '../seo';
 import Layout from '../layout';
-import { setPageName } from '../actions/global';
+import { init } from '../actions/global';
 
 type Props = {
-  setPageName: () => void
+  init: () => void
 };
 
-class Goods extends Component<Props> {
+const Goods = (props: Props) => {
+  const {
+    init
+  } = props;
 
-  componentDidMount() {
-    this.props.setPageName('GOODS');
-  }
+  useEffect(() => {
+    init({
+      pageName: 'GOODS',
+      isSubPage: false,
+      parentUrl: ''
+    });
+    // unmount
+    return () => null;
+  }, []);
 
-  render() {
-    return (
-      <div>
-        <Seo
-          description="BUMP OF CHICKENオフィシャルサイト。ニュース、ディスコグラフィー、スタッフダイアリー、GOODS、PICSなど。"
-          lang="ja"
-          title="GOODS | BUMP OF CHICKEN official website"
-        />
-        <Layout>
-          GOODS!!
-        </Layout>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Seo
+        description="BUMP OF CHICKENオフィシャルサイト。ニュース、ディスコグラフィー、スタッフダイアリー、GOODS、PICSなど。"
+        lang="ja"
+        title="GOODS | BUMP OF CHICKEN official website"
+      />
+      <Layout>
+        GOODS!!
+      </Layout>
+    </div>
+  );
+};
+
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = dispatch => bindActionCreators({
-  setPageName
+  init
 }, dispatch);
 
 export default connect(

@@ -16,7 +16,9 @@ type Props = {
   children: React.Node,
   clickMenu: () => void,
   isMenuOpen: boolean, // headerのメニュー開閉用のflag
-  pageName: string // 現在表示してるpageName
+  pageName: string, // 現在表示してるpageName
+  isSubPage: boolean, // 子のページかどうか
+  parentUrl: string // 親ページのURL
 };
 
 const MenuWrap = styled.div`
@@ -63,7 +65,9 @@ class Layout extends Component<Props> {
       children,
       clickMenu,
       isMenuOpen,
-      pageName
+      pageName,
+      isSubPage,
+      parentUrl
     } = this.props;
 
     // グローバルメニューを表示、非表示をさせる
@@ -83,6 +87,8 @@ class Layout extends Component<Props> {
           onClick={clickMenu}
           isMenuOpen={isMenuOpen}
           pageName={pageName}
+          isSubPage={isSubPage}
+          parentUrl={parentUrl}
         />
         {hasMenu}
         <FixedLayout top={this.state.currentScrollTop} isHeaderModal={isMenuOpen}>
@@ -98,7 +104,9 @@ class Layout extends Component<Props> {
 
 const mapStateToProps = state => ({
   isMenuOpen: state.global.isOpen,
-  pageName: state.global.pageName
+  pageName: state.global.pageName,
+  isSubPage: state.global.isSubPage,
+  parentUrl: state.global.parentUrl
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
   clickMenu

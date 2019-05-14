@@ -2,30 +2,22 @@
 import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
-import Seo from '../seo';
-import Layout from '../layout';
-import { init } from '../actions/global';
+import Seo from '../../seo';
+import Layout from '../../layout';
+import { init } from '../../actions/global';
 
-import ProfileTemplate from '../components/templates/profile';
+import PhotoTop from '../../components/templates/photo';
 
 type Props = {
   init: () => void
 };
 
-const Wrap = styled.div`
-  background-color: #bcc5cc;
-`;
-
-const Profile = (props: Props) => {
-  const {
-    init
-  } = props;
-
+const Photos = (props: Props) => {
+  const { init } = props;
   useEffect(() => {
     init({
-      pageName: 'PROFILE',
+      pageName: 'PHOTOS',
       isSubPage: false,
       parentUrl: ''
     });
@@ -33,16 +25,16 @@ const Profile = (props: Props) => {
     return () => null;
   }, []);
   return (
-    <Wrap>
+    <div>
       <Seo
         description="BUMP OF CHICKENオフィシャルサイト。ニュース、ディスコグラフィー、スタッフダイアリー、GOODS、PICSなど。"
         lang="ja"
-        title="PROFILE | BUMP OF CHICKEN official website"
+        title="BUMP OF CHICKEN official website"
       />
       <Layout>
-        <ProfileTemplate />
+        <PhotoTop />
       </Layout>
-    </Wrap>
+    </div>
   );
 };
 
@@ -55,4 +47,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Profile);
+)(Photos);

@@ -20,6 +20,7 @@
     "storybook": "start-storybook"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "gatsby": "^2.3.29",
     "gatsby-plugin-eslint": "^2.0.4",
     "gatsby-plugin-flow": "^1.0.5",
@@ -42,7 +43,8 @@
     "reselect": "^4.0.0",
     "ress": "^1.2.2",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "url-search-params-polyfill": "^6.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.0",

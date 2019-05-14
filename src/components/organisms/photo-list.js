@@ -57,7 +57,6 @@ const PhotoList = (props: Props) => {
     albumId,
     openDetail
   } = props;
-
   const photoImages = (photos.length !== 0 || photos !== null)
     ? (
       photos.map(d => {

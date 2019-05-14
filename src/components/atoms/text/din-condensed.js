@@ -12,29 +12,29 @@ const Span = styled.span`
   font-family: 'URWDINCond';
 
   &.Xsmall {
-    font-size: 1.6rem;
     font-size: 16px;
+    font-size: 1.6rem;
     line-height: calc(18 / 16);
     letter-spacing: 0;
   }
 
   &.small {
-    font-size: 2.4rem;
     font-size: 24px;
+    font-size: 2.4rem;
     line-height: calc(26 / 24);
     letter-spacing: -0.0001em
   }
 
   &.medium {
-    font-size: 4rem;
-    font-size: 40px;
+    font-size: 38px;
+    font-size: 3.8rem;
     line-height: calc(36 / 40);
     letter-spacing: -0.0004em
   }
 
   &.large {
-    font-size: 6.4rem;
     font-size: 64px;
+    font-size: 6.4rem;
     line-height: calc(58 / 64);
     letter-spacing: -0.0001em
   }
