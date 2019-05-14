@@ -9,7 +9,7 @@ import styled from 'styled-components';
 // import LogoSymbol from '../atoms/logo/logo-symbol';
 
 // import Sns from '../molecules/sns/sns-top';
-import Year from '../molecules/history/yaer';
+import YearList from '../organisms/history/year-list';
 
 // import MenuContents from '../organisms/menu-contents';
 
@@ -19,7 +19,7 @@ const Wrap = styled.div`
 
 const History = () => (
   <Wrap>
-    <Year />
+    <YearList />
   </Wrap>
 );
 
