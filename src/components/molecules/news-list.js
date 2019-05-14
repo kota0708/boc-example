@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Color from '../../constants/styles/color';
 import { SIZE_XSM } from '../../constants/styles/size';
@@ -11,7 +12,8 @@ type Props = {
   category?: string, // カテゴリーを受け取る
   description?: string, // 詳細を受け取る
   categoryColor?: string, // カテゴリーの色を受け取る
-  descriptionSize?: string // 詳細のフォントサイズを受け取る
+  descriptionSize?: string, // 詳細のフォントサイズを受け取る
+  link?: string // カテゴリーのリンクを受け取る
 };
 
 const Content = styled.div`
@@ -56,6 +58,10 @@ const HeadingLine = styled.span`
   background-color: ${Color.GRAY};
 `;
 
+const StyledLink = styled(Link)`
+  color: ${Color.BLACK};
+  text-decoration: none;
+`;
 
 const HeadingCategory = styled.p`
   &.gray {
@@ -89,8 +95,23 @@ const NewsList = (props: Props) => {
     category,
     description,
     categoryColor,
-    descriptionSize
+    descriptionSize,
+    link
   } = props;
+
+  // リンクがある場合
+  const catefgory = (link !== '') ? (
+    <StyledLink to={link}>
+      <HeadingCategory className={categoryColor}>
+        <DinCondensed size={SIZE_XSM} text={category} />
+      </HeadingCategory>
+    </StyledLink>
+  ) : (
+    <HeadingCategory className={categoryColor}>
+      <DinCondensed size={SIZE_XSM} text={category} />
+    </HeadingCategory>
+  );
+
   return (
     <Content>
       <HeadingWrap>
@@ -99,9 +120,7 @@ const NewsList = (props: Props) => {
             <HeadingDate>
               <DinCondensed size={SIZE_XSM} text={date} />
             </HeadingDate>
-            <HeadingCategory className={categoryColor}>
-              <DinCondensed size={SIZE_XSM} text={category} />
-            </HeadingCategory>
+            {catefgory}
           </HeadingContents>
           <HeadingLine />
         </HeadingInner>
@@ -116,7 +135,8 @@ NewsList.defaultProps = {
   category: 'MAGAZINE',
   description: '「月虹」がTVアニメ「からくりサーカス」第3クールエンディングテーマに起用',
   categoryColor: 'gray',
-  descriptionSize: 'small'
+  descriptionSize: 'small',
+  link: ''
 };
 
 export default NewsList;
