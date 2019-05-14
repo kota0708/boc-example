@@ -8,7 +8,7 @@ import NewsList from '../../molecules/news-list';
 
 
 type Props = {
-  pageData?: Array<Object>, // ページデータを受け取る
+  pageData?: Object, // ページデータを受け取る
 };
 
 const Wrap = styled.div`
