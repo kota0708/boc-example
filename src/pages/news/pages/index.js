@@ -7,6 +7,8 @@ import Seo from '../../../seo';
 import Layout from '../../../layout';
 import { setPageName } from '../../../actions/global';
 
+import Page from '../../../components/templates/news/page';
+
 type Props = {
   setPageName: () => void
 };
@@ -26,7 +28,7 @@ class NewsDitail extends Component<Props> {
           title="NEWS | BUMP OF CHICKEN official website"
         />
         <Layout>
-          <p>ニュースページの中ページ</p>
+          <Page />
         </Layout>
       </div>
     );
