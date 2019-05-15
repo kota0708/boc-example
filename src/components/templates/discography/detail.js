@@ -1,20 +1,21 @@
 // @flow
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 // import pageData from '../../../constants/stub/news/page';
 // import { SIZE_LG } from '../../../constants/styles/size';
 
+import Heading from '../../molecules/discography/detail/heading';
+
 // import Lists from '../../organisms/discography/top/lists';
-// import Share from '../../molecules/sns/sns-share';
 
 
 type Props = {
   data?: Array<Object>, // discographyのリストデータを受け取る
 };
 
-// const Wrap = styled.div`
-//   padding-top: 80px;
-// `;
+const Wrap = styled.div`
+  padding-top: 80px;
+`;
 
 const Detail = (props: Props) => {
   const { data } = props;
@@ -22,9 +23,9 @@ const Detail = (props: Props) => {
   console.log(data);
 
   return (
-    <div>
-      <p>ditail</p>
-    </div>
+    <Wrap>
+      <Heading />
+    </Wrap>
   );
 };
 
