@@ -57,6 +57,9 @@ const IndexPage = (props: Props) => {
               <Link to="/discography/">discography</Link>
             </li>
             <li>
+              <Link to="/discography/detail">discographyDetail</Link>
+            </li>
+            <li>
               <Link to="/live/">Live</Link>
             </li>
             <li>
