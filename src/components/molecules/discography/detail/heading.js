@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { SIZE_XSM } from '../../../../constants/styles/size';
 import Color from '../../../../constants/styles/color';
 
-import Image from '../../../atoms/images/fit-image';
 import DinCondensed from '../../../atoms/text/din-condensed';
 
 type Props = {
@@ -22,6 +21,12 @@ const ImageWrap = styled.div`
   /* 236 / 375 * 100 */
   width: 62.9%;
   margin: 0 auto 36px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: auto;
+  box-shadow: 15px 15px 30px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const DinCondensedWrap = styled.p`
@@ -51,7 +56,7 @@ const DiscographyList = (props: Props) => {
   return (
     <Wrap>
       <ImageWrap>
-        <Image url={imgUrl} />
+        <Image src={imgUrl} />
       </ImageWrap>
       <ContentWrap>
         <DinCondensedWrap>
