@@ -2,10 +2,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { SIZE_XSM } from '../../constants/styles/size';
-import Color from '../../constants/styles/color';
+import { SIZE_XSM } from '../../../constants/styles/size';
+import Color from '../../../constants/styles/color';
 
-import DinCondensed from '../atoms/text/din-condensed';
+import DinCondensed from '../../atoms/text/din-condensed';
 
 type Props = {
   date?: string, // 日付を受け取る
@@ -36,6 +36,7 @@ const DescriptionWrap = styled.p`
   font-weight: normal;
   line-height: 1.71;
   letter-spacing: 0.0004em;
+  color: ${Color.WHITE};
 `;
 
 const Contents = (props: Props) => {
