@@ -25,8 +25,11 @@ const YearListWrap = styled.div`
   margin-right: 45px;
 `;
 
+const ContentsWrap = styled.div`
+  width: 100%;
+`;
+
 const ContentsListWrap = styled.div`
-  /* 240 / (370 - 50) * 100 */
   width: 100%;
   margin-bottom: 36px;
 `;
@@ -42,7 +45,7 @@ const History = () => (
     <YearListWrap>
       <YearList />
     </YearListWrap>
-    <div>
+    <ContentsWrap>
       <ContentsListWrap>
         <ContentsList />
       </ContentsListWrap>
@@ -50,7 +53,7 @@ const History = () => (
         <PageNation isNext={false} />
         <PageNation />
       </PageNationWrap>
-    </div>
+    </ContentsWrap>
   </Wrap>
 );
 
