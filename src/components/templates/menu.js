@@ -18,7 +18,8 @@ type Props = {
   listData?: Array<Object>, // ページのリンクとページ名を受け取る
   carouselData?: Array<Object>, // トップのカルーセルのデータを受け取る
   onClose: () => void, // 閉じるよう
-  currentPageName: string
+  currentPageName: string,
+  onLogoClick: () => void // 左上のロゴクリック時
 };
 
 const Wrap = styled.div`
@@ -66,13 +67,19 @@ const Menu = (props: Props) => {
     listData,
     carouselData,
     onClose,
-    currentPageName
+    currentPageName,
+    onLogoClick
   } = props;
 
   return (
     <Wrap>
       <Heading>
-        <StyledLink to="/">
+        <StyledLink
+          to="/"
+          onClick={() => {
+            onLogoClick();
+          }}
+        >
           <LogoWrap>
             <LogoSymbol />
           </LogoWrap>

@@ -14,6 +14,7 @@ const ContentsList = (props: Props) => {
   } = props;
 
   const contents = data.map((r, i) => {
+    // 偶数と奇数で背景の色を変える
     const color = ((i + 1) % 2 === 0) ? 'navy' : 'black';
 
     return (
@@ -34,6 +35,8 @@ const ContentsList = (props: Props) => {
 };
 
 ContentsList.defaultProps = {
+  // 仮のデータです
+  // TODO: 後でJSONかjsで外部化する
   data: [
     {
       date: '9/16',

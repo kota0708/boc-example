@@ -6,7 +6,8 @@ import {
   OPEN_PHOTO_DETAIL,
   RESET_PHOTO_DETAIL,
   GET_LIVE_ID,
-  LOAD_JSON
+  LOAD_JSON,
+  RESET_PHOTO_LIST
 } from '../actions/photo';
 
 type State = {
@@ -52,6 +53,11 @@ export default (state = initialState, action) => produce(state,
       case LOAD_JSON:
         draft.isLoading = action.payload.isLoading;
         draft.listData = action.payload.listData;
+        break;
+      case RESET_PHOTO_LIST:
+        draft.isLoading = action.payload.isLoading;
+        draft.listData = action.payload.listData;
+        draft.liveId = action.payload.liveId;
         break;
     }
   });

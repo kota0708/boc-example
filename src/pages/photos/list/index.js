@@ -14,7 +14,8 @@ import {
   openPhotoDetail,
   closePhotoDetail,
   resetModal,
-  loadJSON
+  loadJSON,
+  resetPhotoList
 } from '../../../actions/photo';
 import {
   makeSelectLiveId,
@@ -33,6 +34,7 @@ type Props = {
   openPhotoDetail: () => void,
   resetModal: () => void,
   closePhotoDetail: () => void,
+  resetPhotoList: () => void,
   /* eslint-disable react/no-unused-prop-types */
   loadJSON: () => void,
   /* eslint-disable react/no-unused-prop-types */
@@ -57,7 +59,8 @@ const PhotoListPage = (props: Props) => {
     liveId,
     getLiveIdByUrl,
     isLoading,
-    loadJSON
+    loadJSON,
+    resetPhotoList
   } = props;
 
   const [photoData, getJSON] = useState(null);
@@ -73,8 +76,14 @@ const PhotoListPage = (props: Props) => {
     if (isLoading) {
       loadJSON((data) => getJSON(data));
     }
-    return () => null;
+    return () => {
+      getJSON(null);
+      resetPhotoList();
+    };
   }, []);
+
+  console.log('----- check', isLoading);
+  console.log(photoData);
 
   const amount = photoData
     ? reduce(photoData.data, (a, b) => a + b.photos.length, 0)
@@ -130,7 +139,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   openPhotoDetail,
   resetModal,
   closePhotoDetail,
-  loadJSON
+  loadJSON,
+  resetPhotoList
 }, dispatch);
 
 export default connect(

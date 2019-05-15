@@ -26,7 +26,7 @@ const G = styled.g`
 
 const ArrowLink = (props: Props) => {
 
-  const rotate = (props.isRotate) ? 'rotate' : null;
+  const rotate = (props.isRotate) ? 'rotate' : '';
 
   return (
     <Svg className={rotate} width="32" height="22" viewBox="0 0 32 22">

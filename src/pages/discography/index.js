@@ -3,37 +3,40 @@ import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Seo from '../seo';
-import Layout from '../layout';
-import { init } from '../actions/global';
+import Seo from '../../seo';
+import Layout from '../../layout';
+import { init } from '../../actions/global';
+
+import Top from '../../components/templates/discography/top';
 
 type Props = {
   init: () => void
 };
 
-const Videos = (props: Props) => {
+const Discography = (props: Props) => {
   const {
     init
   } = props;
 
   useEffect(() => {
     init({
-      pageName: 'VIDEOS',
+      pageName: 'DISCOGRAPHY',
       isSubPage: false,
       parentUrl: ''
     });
     // unmount
     return () => null;
   }, []);
+
   return (
     <div>
       <Seo
         description="BUMP OF CHICKENオフィシャルサイト。ニュース、ディスコグラフィー、スタッフダイアリー、GOODS、PICSなど。"
         lang="ja"
-        title="VIDEOS | BUMP OF CHICKEN official website"
+        title="DISCOGRAPHY | BUMP OF CHICKEN official website"
       />
       <Layout>
-        Videos!!
+        <Top />
       </Layout>
     </div>
   );
@@ -47,4 +50,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Videos);
+)(Discography);

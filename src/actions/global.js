@@ -1,6 +1,7 @@
 /** @flow * */
 export const INIT = '@@GLOBAL/init';
 export const CLICK_MENU = '@@GLOBAL/clickMenu';
+export const CLICK_LOGO = '@@GLOBAL/clickLogo';
 
 export const SET_PAGE_NAME = '@@GLOBAL/setPageName';
 // export const ENTER_PAGE = '@@GLOBAL/enterPage';
@@ -23,6 +24,20 @@ export const clickMenu = () => (dispatch, getState) => {
     payload: {
       // 反転させる。
       isOpen: !global.isOpen
+    }
+  });
+};
+
+/**
+ * ロゴクリックされたとき。
+ * 強制的にメニューの開閉を閉じる。
+ * @returns {Function}
+ */
+export const clickLogo = () => dispatch => {
+  dispatch({
+    type: CLICK_LOGO,
+    payload: {
+      isOpen: false
     }
   });
 };

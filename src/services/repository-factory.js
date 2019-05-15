@@ -1,7 +1,9 @@
 import PhotoRepository from './photo-repository';
+import VideosRepository from './videos-repository';
 
 const repositories = {
-  photo: PhotoRepository
+  photo: PhotoRepository,
+  videos: VideosRepository
 };
 
 /* eslint-disable import/prefer-default-export */

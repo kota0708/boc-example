@@ -45,7 +45,7 @@ const PageNation = (props: Props) => {
     isNext
   } = props;
 
-  const contents = (isNext) ? (
+  const contents = isNext ? (
     <Fragment>
       <DinCondensedWrap>
         <DinCondensed size={SIZE_XSM} text={year} />

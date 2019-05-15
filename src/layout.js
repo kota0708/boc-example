@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import styled from 'styled-components';
-import { clickMenu } from './actions/global';
+import { clickMenu, clickLogo } from './actions/global';
 
 import GlobalStyle from './global-style';
 import Header from './components/organisms/header';
@@ -15,6 +15,7 @@ import FixedLayout from './layout/fixed-layout';
 type Props = {
   children: React.Node,
   clickMenu: () => void,
+  clickLogo: () => void, // 左上のロゴクリックのとき
   isMenuOpen: boolean, // headerのメニュー開閉用のflag
   pageName: string, // 現在表示してるpageName
   isSubPage: boolean, // 子のページかどうか
@@ -64,6 +65,7 @@ class Layout extends Component<Props> {
     const {
       children,
       clickMenu,
+      clickLogo,
       isMenuOpen,
       pageName,
       isSubPage,
@@ -75,6 +77,7 @@ class Layout extends Component<Props> {
       <MenuWrap>
         <Menu
           onClose={clickMenu}
+          onLogoClick={clickLogo}
           currentPageName={pageName}
         />
       </MenuWrap>
@@ -85,6 +88,7 @@ class Layout extends Component<Props> {
         <GlobalStyle />
         <Header
           onClick={clickMenu}
+          onClickLogo={clickLogo}
           isMenuOpen={isMenuOpen}
           pageName={pageName}
           isSubPage={isSubPage}
@@ -109,7 +113,8 @@ const mapStateToProps = state => ({
   parentUrl: state.global.parentUrl
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
-  clickMenu
+  clickMenu,
+  clickLogo
 }, dispatch);
 
 export default connect(

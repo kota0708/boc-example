@@ -24,7 +24,6 @@ const PhotoTop = () => {
         key={d.id}
         state={{ id: d.id }}
         to={`/photos/list/?id=${d.id}`}
-        replace
       >
         {d.id}
       </StyledLink>

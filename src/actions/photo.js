@@ -5,6 +5,7 @@ export const CLOSE_PHOTO_DETAIL = '@@PHOTO/closePhotoDetail';
 export const RESET_PHOTO_DETAIL = '@@PHOTO/resetPhotoDetail';
 export const GET_LIVE_ID = '@@PHOTO/getLiveId';
 export const LOAD_JSON = '@@PHOTO/LOAD_JSON';
+export const RESET_PHOTO_LIST = '@@PHOTO/resetPhotoList';
 
 /**
  * モーダル出現
@@ -87,4 +88,19 @@ export const loadJSON = (cb) => async (dispatch, getState) => {
     }
   });
   cb(data);
+};
+
+/**
+ * 写真リストページ(photo/list）から離脱するときにたたくよう。
+ * @returns {Function}
+ */
+export const resetPhotoList = () => dispatch => {
+  dispatch({
+    type: RESET_PHOTO_LIST,
+    payload: {
+      isLoading: true,
+      listData: null,
+      liveId: ''
+    }
+  });
 };
