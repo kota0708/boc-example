@@ -1,46 +1,88 @@
 /* @flow */
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 
-// import { SIZE_XSM } from '../../../constants/styles/size';
+import { SIZE_XSM } from '../../../constants/styles/size';
 // import Color from '../../../constants/styles/color';
 
-// import DinCondensed from '../../atoms/text/din-condensed';
+import DinCondensed from '../../atoms/text/din-condensed';
+
+import ArrowLink from '../../atoms/icons/arrow-link';
 
 type Props = {
-  date?: string, // 日付を受け取る
-  description?: string, // 詳細を受け取る
-  color?: string // 背景の色を受け取る
+  isNext?: boolean, // 次のページのページネーションか受け取る
+  year?: number, // 年を受け取る
+  onClick?: () => void // クリックイベントを受け取る
 }
 
-const Wrap = styled.div`
-  padding: 16px;
+const Wrap = styled.button`
+  display: flex;
+  align-items: center;
+  outline: none;
+`;
 
-  &.black {
-    background-color: ${Color.BLACK}
+const IconWrap = styled.div`
+  width: 25px;
+  height: 16px;
+
+  &.right {
+    margin-right: 13px;
   }
 
-  &.navy {
-    background-color: ${Color.NAVY}
+  &.left {
+    margin-left: 13px;
   }
 `;
 
-const Contents = (props: Props) => {
+const DinCondensedWrap = styled.div`
+  padding-top: 0.7em;
+`;
+
+const PageNation = (props: Props) => {
   const {
-    color
+    year,
+    onClick,
+    isNext
   } = props;
 
+  const contents = (isNext) ? (
+    <Fragment>
+      <DinCondensedWrap>
+        <DinCondensed size={SIZE_XSM} text={year} />
+      </DinCondensedWrap>
+      <IconWrap className="left">
+        <ArrowLink />
+      </IconWrap>
+    </Fragment>
+  ) : (
+    <Fragment>
+      <IconWrap className="right">
+        <ArrowLink isRotate />
+      </IconWrap>
+      <DinCondensedWrap>
+        <DinCondensed size={SIZE_XSM} text={year} />
+      </DinCondensedWrap>
+    </Fragment>
+  );
+
   return (
-    <Wrap className={color}>
-      <p>test</p>
-    </Wrap>
+    <Fragment>
+      <Wrap
+        onClick={(e) => {
+          e.preventDefault();
+          onClick();
+        }}
+      >
+        {contents}
+      </Wrap>
+    </Fragment>
   );
 };
 
-Contents.defaultProps = {
-  date: '9/16',
-  description: '全国アリーナツアー「BUMP OF CHICKEN TOUR 2017-2018 PATHFINDER」スタート全国アリーナツアー「BUMP OF CHICKEN TOUR 2017-2018 PATHFINDER」スタート',
-  color: 'black'
+PageNation.defaultProps = {
+  isNext: true,
+  year: 2019,
+  onClick: () => null
 };
 
-export default Contents;
+export default PageNation;

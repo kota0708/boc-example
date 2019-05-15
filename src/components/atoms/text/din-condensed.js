@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type Props = {
-  text: string, // 表示する文言を受け取る
+  text: string | number, // 表示する文言を受け取る
   size: string // sizeを受け取る
 };
 

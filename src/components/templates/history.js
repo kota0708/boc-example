@@ -8,7 +8,8 @@ import styled from 'styled-components';
 
 // import LogoSymbol from '../atoms/logo/logo-symbol';
 
-// import Sns from '../molecules/sns/sns-top';
+import PageNation from '../molecules/history/page-nation';
+
 import YearList from '../organisms/history/year-list';
 import ContentsList from '../organisms/history/contents-list';
 
@@ -27,6 +28,13 @@ const YearListWrap = styled.div`
 const ContentsListWrap = styled.div`
   /* 240 / (370 - 50) * 100 */
   width: 100%;
+  margin-bottom: 36px;
+`;
+
+const PageNationWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const History = () => (
@@ -34,9 +42,15 @@ const History = () => (
     <YearListWrap>
       <YearList />
     </YearListWrap>
-    <ContentsListWrap>
-      <ContentsList />
-    </ContentsListWrap>
+    <div>
+      <ContentsListWrap>
+        <ContentsList />
+      </ContentsListWrap>
+      <PageNationWrap>
+        <PageNation isNext={false} />
+        <PageNation />
+      </PageNationWrap>
+    </div>
   </Wrap>
 );
 
