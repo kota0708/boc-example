@@ -16,16 +16,17 @@ import ContentsList from '../organisms/history/contents-list';
 
 const Wrap = styled.div`
   display: flex;
-  padding: 0 25px;
+  padding: 80px 25px 0;
+  overflow: hidden;
 `;
 
 const YearListWrap = styled.div`
-  margin-right: 60px;
+  margin-right: 45px;
 `;
 
 const ContentsListWrap = styled.div`
   /* 240 / (370 - 50) * 100 */
-  width: 75%;
+  width: 100%;
 `;
 
 const History = () => (

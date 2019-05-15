@@ -15,6 +15,9 @@ type Props = {
 
 const Button = styled.button`
   outline: none;
+  position: relative;
+  background-color: ${Color.WHITE};
+  padding: 5px 15px 0 0;
 
   &.gray {
     color: ${Color.GRAY};
@@ -22,6 +25,19 @@ const Button = styled.button`
 
   &.black {
     color: ${Color.BLACK};
+
+    &:after {
+      content: '';
+      width: 100vw;
+      height: 1px;
+      background-color: ${Color.BLACK};
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto 0;
+      z-index: -1;
+    }
   }
 `;
 

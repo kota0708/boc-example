@@ -14,7 +14,7 @@ const ContentsList = (props: Props) => {
   } = props;
 
   const contents = data.map((r, i) => {
-    const color = ((i + 1) % 2) ? 'navy' : 'black';
+    const color = ((i + 1) % 2 === 0) ? 'navy' : 'black';
 
     return (
       <Contents
