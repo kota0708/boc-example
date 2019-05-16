@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import Heading from '../../molecules/discography/detail/heading';
 import AlbumHeading from '../../molecules/discography/detail/album-heading';
+import AlbumContents from '../../molecules/discography/detail/album-contents';
 // import Lists from '../../organisms/discography/top/lists';
 
 
@@ -21,8 +22,9 @@ const HeadingWrap = styled.div`
   margin-bottom: 60px;
 `;
 
-const AlbumHeadingWrap = styled.div`
+const ContentsWrap = styled.div`
   padding: 0 25px;
+  margin-bottom: 40px;
 `;
 
 const Detail = (props: Props) => {
@@ -35,9 +37,12 @@ const Detail = (props: Props) => {
       <HeadingWrap>
         <Heading />
       </HeadingWrap>
-      <AlbumHeadingWrap>
+      <ContentsWrap>
         <AlbumHeading />
-      </AlbumHeadingWrap>
+      </ContentsWrap>
+      <ContentsWrap>
+        <AlbumContents />
+      </ContentsWrap>
     </Wrap>
   );
 };

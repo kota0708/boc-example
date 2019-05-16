@@ -29,7 +29,7 @@ const Image = styled.img`
 
 const ContentWrap = styled.div`
   /* 218 / (375 - 50) * 100 */
-  width: 67.1;
+  width: 67.1%;
   margin-left: 20px;
 `;
 
