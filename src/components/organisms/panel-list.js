@@ -36,6 +36,8 @@ const PanelLists = (props: Props) => {
 };
 
 PanelLists.defaultProps = {
+  // 仮のデータです
+  // TODO: 後でJSONかjsで外部化する
   data: [
     {
       name: 'TOWER RECORDS',

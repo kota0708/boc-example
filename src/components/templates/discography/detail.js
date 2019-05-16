@@ -1,19 +1,16 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-// import pageData from '../../../constants/stub/news/page';
-// import { SIZE_LG } from '../../../constants/styles/size';
+
+import { SIZE_SM } from '../../../constants/styles/size';
+
+import DinCondensed from '../../atoms/text/din-condensed';
 
 import Heading from '../../molecules/discography/detail/heading';
-import AlbumHeading from '../../molecules/discography/detail/album-heading';
-import AlbumContents from '../../molecules/discography/detail/album-contents';
+import Share from '../../molecules/sns/sns-share';
 
-import PanelList from '../../organisms/panel-list';
-
-
-type Props = {
-  data?: Array<Object>, // discographyのリストデータを受け取る
-};
+import DetailContents from '../../organisms/discography/detail-contents';
+import GlobalSlide from '../../organisms/slide/global-slide';
 
 const Wrap = styled.div`
   padding-top: 80px;
@@ -24,42 +21,37 @@ const HeadingWrap = styled.div`
 `;
 
 const ContentsWrap = styled.div`
-  padding: 0 25px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 `;
 
-const Detail = (props: Props) => {
-  const { data } = props;
+const ShareWrap = styled.div`
+  margin-bottom: 80px;
+  padding: 0 25px;
+`;
 
-  console.log(data);
+const GlobalSlideTitle = styled.h2`
+  font-weight: 500;
+  margin-bottom: 40px;
+  padding: 0 25px;
+`;
 
-  return (
-    <Wrap>
-      <HeadingWrap>
-        <Heading />
-      </HeadingWrap>
-      <ContentsWrap>
-        <AlbumHeading />
-      </ContentsWrap>
-      <ContentsWrap>
-        <AlbumContents />
-      </ContentsWrap>
-      <PanelList />
-    </Wrap>
-  );
-};
 
-Detail.defaultProps = {
-  // 仮のデータです
-  // TODO: 後でJSONかjsで外部化する
-  data: [
-    {
-      imgUrl: '/images/photos/0.jpg',
-      type: 'SINGLE',
-      link: '/discography/pages',
-      title: 'Aurora'
-    }
-  ]
-};
+const Detail = () => (
+  <Wrap>
+    <HeadingWrap>
+      <Heading />
+    </HeadingWrap>
+    <ContentsWrap>
+      <DetailContents />
+    </ContentsWrap>
+    <ShareWrap>
+      <Share />
+    </ShareWrap>
+    <GlobalSlideTitle>
+      <DinCondensed size={SIZE_SM} text="RELATED CONTENT" />
+    </GlobalSlideTitle>
+    <GlobalSlide />
+  </Wrap>
+);
 
 export default Detail;

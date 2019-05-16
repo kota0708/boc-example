@@ -117,7 +117,7 @@ AlbumContents.defaultProps = {
   title: '収録曲',
   lists: [
     {
-      id: '01',
+      alid: '01',
       name: 'pathfinder'
     },
     {
