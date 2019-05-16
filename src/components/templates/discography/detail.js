@@ -5,6 +5,7 @@ import styled from 'styled-components';
 // import { SIZE_LG } from '../../../constants/styles/size';
 
 import Heading from '../../molecules/discography/detail/heading';
+import PanelLink from '../../molecules/panel-link';
 import AlbumHeading from '../../molecules/discography/detail/album-heading';
 import AlbumContents from '../../molecules/discography/detail/album-contents';
 // import Lists from '../../organisms/discography/top/lists';
@@ -43,6 +44,7 @@ const Detail = (props: Props) => {
       <ContentsWrap>
         <AlbumContents />
       </ContentsWrap>
+      <PanelLink />
     </Wrap>
   );
 };
