@@ -17,8 +17,8 @@ const Wrap = styled.div`
 `;
 
 const ImageWrap = styled.div`
-  /* 66 / (375 - 50) * 100 */
-  width: 20.3%;
+  /* 86 / (375 - 50) * 100 */
+  width: 26.5%;
 `;
 
 const Image = styled.img`
@@ -28,8 +28,8 @@ const Image = styled.img`
 `;
 
 const ContentWrap = styled.div`
-  /* 238 / (375 - 50) * 100 */
-  width: 73.2;
+  /* 218 / (375 - 50) * 100 */
+  width: 67.1;
   margin-left: 20px;
 `;
 

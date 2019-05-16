@@ -17,6 +17,10 @@ const Wrap = styled.div`
   padding-top: 80px;
 `;
 
+const HeadingWrap = styled.div`
+  margin-bottom: 60px;
+`;
+
 const AlbumHeadingWrap = styled.div`
   padding: 0 25px;
 `;
@@ -28,7 +32,9 @@ const Detail = (props: Props) => {
 
   return (
     <Wrap>
-      <Heading />
+      <HeadingWrap>
+        <Heading />
+      </HeadingWrap>
       <AlbumHeadingWrap>
         <AlbumHeading />
       </AlbumHeadingWrap>
