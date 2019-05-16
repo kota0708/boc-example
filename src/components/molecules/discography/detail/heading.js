@@ -46,7 +46,7 @@ const ContentWrap = styled.div`
   padding: 0 25px;
 `;
 
-const DiscographyList = (props: Props) => {
+const Heading = (props: Props) => {
   const {
     imgUrl,
     type,
@@ -68,12 +68,12 @@ const DiscographyList = (props: Props) => {
   );
 };
 
-DiscographyList.defaultProps = {
+Heading.defaultProps = {
   // 仮のデータです
   // TODO: 後でJSONかjsで外部化する
   imgUrl: '/images/photos/0.jpg',
-  type: 'SINGLE',
-  title: 'Aurora'
+  type: 'DVD/Blu-ray',
+  title: 'BUMP OF CHICKEN TOUR 2017-2018 PATHFINDER SAITAMA SUPER ARENA'
 };
 
-export default DiscographyList;
+export default Heading;
