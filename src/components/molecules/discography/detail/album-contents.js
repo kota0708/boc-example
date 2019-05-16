@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Color from '../../../../constants/styles/color';
 
@@ -9,6 +9,25 @@ type Props = {
   lists?: Array<Object> // アルバムのリストを受け取る
 }
 
+const Text = css`
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-weight: normal;
+  line-height: 1.71;
+  letter-spacing: 0.4px;
+`;
+
+const LeftWidth = css`
+  /* 86 / (375 - 50) * 100 */
+  width: 26.5%;
+`;
+
+const RightWidth = css`
+  /* 218 / (375 - 50) * 100 */
+  width: 67.1%;
+  margin-left: 20px;
+`;
+
 const Wrap = styled.div`
   width: 100%;
 `;
@@ -16,11 +35,11 @@ const Wrap = styled.div`
 const Heading = styled.div`
   width: 100%;
   display: flex;
+  margin-bottom: 10px;
 `;
 
 const HeadingLine = styled.div`
-  /* 86 / (375 - 50) * 100 */
-  width: 26.5%;
+  ${LeftWidth}
   position: relative;
 
   &::after {
@@ -37,18 +56,31 @@ const HeadingLine = styled.div`
 `;
 
 const HeadingTitleWrap = styled.div`
-  /* 218 / (375 - 50) * 100 */
-  width: 67.1%;
-  margin-left: 20px;
+  ${RightWidth}
 `;
 
 const HeadingTitle = styled.h4`
-  font-size: 14px;
-  font-size: 1.4rem;
-  font-weight: normal;
-  line-height: 1.71;
-  letter-spacing: 0.4px;
+  ${Text}
   color: ${Color.GRAY};
+`;
+
+const Contents = styled.ul`
+  width: 100%;
+`;
+
+const ContentsList = styled.li`
+  ${Text}
+  display: flex;
+`;
+
+const ListId = styled.p`
+  ${LeftWidth}
+  color: ${Color.GRAY};
+`;
+
+const ListTitle = styled.p`
+  ${RightWidth}
+  color: ${Color.BLACK};
 `;
 
 const AlbumContents = (props: Props) => {
@@ -57,7 +89,12 @@ const AlbumContents = (props: Props) => {
     lists
   } = props;
 
-  console.log(lists);
+  const list = lists.map((r, i) => (
+    <ContentsList key={i}>
+      <ListId>{r.id}</ListId>
+      <ListTitle>{r.name}</ListTitle>
+    </ContentsList>
+  ));
 
   return (
     <Wrap>
@@ -67,6 +104,9 @@ const AlbumContents = (props: Props) => {
           <HeadingTitle>{title}</HeadingTitle>
         </HeadingTitleWrap>
       </Heading>
+      <Contents>
+        {list}
+      </Contents>
     </Wrap>
   );
 };
@@ -77,19 +117,19 @@ AlbumContents.defaultProps = {
   title: '収録曲',
   lists: [
     {
-      id: 1,
+      id: '01',
       name: 'pathfinder'
     },
     {
-      id: 2,
+      id: '02',
       name: 'GO'
     },
     {
-      id: 3,
+      id: '03',
       name: '天体観測'
     },
     {
-      id: 4,
+      id: '04',
       name: 'ray'
     }
   ]
