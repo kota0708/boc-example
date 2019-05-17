@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 import { SIZE_SM } from '../../../constants/styles/size';
 import DinCondensed from '../../atoms/text/din-condensed';
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 // import member from '../../../constants/member';
 
 type Props = {
@@ -34,7 +34,7 @@ const Inner = styled.div`
     left: 0;
     right: 0;
     margin: auto;
-    background-color: ${Color.BLACK};
+    background-color: ${props => props.theme.colors.black};
     transform: rotate(-36deg);
     transform-origin: center center;
     z-index: -1;
@@ -63,8 +63,8 @@ const HistoryLink = styled(Link)`
   display: block;
   text-decoration: none;
   text-align: center;
-  background-color: ${Color.BLACK};
-  color: ${Color.WHITE};
+  background-color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.white};
   padding: 20px 0 15px;
 `;
 

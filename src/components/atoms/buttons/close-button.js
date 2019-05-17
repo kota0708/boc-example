@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 
 type Props = {
   onClick: () => void
@@ -28,7 +28,7 @@ const Button = styled.button`
     margin-top: -1px;
     margin-left: -14px;
     display: block;
-    background-color: ${Color.WHITE};
+    background-color: ${props => props.theme.colors.white};
   }
   
   &:after {

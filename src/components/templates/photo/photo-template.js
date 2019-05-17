@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 
 // import photoListData from '../../../constants/stub/photo-list-data';
 import PhotoList from '../../organisms/photo-list';
@@ -47,7 +47,7 @@ const HeadingAmount = styled.p`
   font-size: 14px;
   font-size: 1.4rem;
   line-height: 1.71;
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
   letter-spacing: 0.0004em;
   align-self: flex-end;
 `;

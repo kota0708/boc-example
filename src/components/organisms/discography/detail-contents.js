@@ -7,8 +7,6 @@ import styled from 'styled-components';
 import AlbumHeading from '../../molecules/discography/detail/album-heading';
 import AlbumContents from '../../molecules/discography/detail/album-contents';
 
-import Color from '../../../constants/styles/color';
-
 import PanelList from '../panel-list';
 
 
@@ -56,7 +54,7 @@ const PanelListWrap = styled.div`
     width: 100%;
     height: 100%;
     opacity: 0.22;
-    background: ${Color.GRADATION};
+    background: ${props => props.theme.colors.gradation};;
     z-index: -1;
   }
 `;
@@ -119,19 +117,19 @@ DetailContents.defaultProps = {
           title: '収録曲',
           lists: [
             {
-              id: '01',
+              label: '01',
               name: 'pathfinder'
             },
             {
-              id: '02',
+              label: '02',
               name: 'GO'
             },
             {
-              id: '03',
+              label: '03',
               name: '天体観測'
             },
             {
-              id: '04',
+              label: '04',
               name: 'ray'
             }
           ]
@@ -140,19 +138,19 @@ DetailContents.defaultProps = {
           title: '収録曲',
           lists: [
             {
-              id: '01',
+              label: '01',
               name: 'pathfinder'
             },
             {
-              id: '02',
+              label: '02',
               name: 'GO'
             },
             {
-              id: '03',
+              label: '03',
               name: '天体観測'
             },
             {
-              id: '04',
+              label: '04',
               name: 'ray'
             }
           ]
@@ -186,19 +184,19 @@ DetailContents.defaultProps = {
           title: '収録曲',
           lists: [
             {
-              id: '01',
+              label: '01',
               name: 'pathfinder'
             },
             {
-              id: '02',
+              label: '02',
               name: 'GO'
             },
             {
-              id: '03',
+              label: '03',
               name: '天体観測'
             },
             {
-              id: '04',
+              label: '04',
               name: 'ray'
             }
           ]
@@ -207,19 +205,19 @@ DetailContents.defaultProps = {
           title: '収録曲',
           lists: [
             {
-              id: '01',
+              label: '01',
               name: 'pathfinder'
             },
             {
-              id: '02',
+              label: '02',
               name: 'GO'
             },
             {
-              id: '03',
+              label: '03',
               name: '天体観測'
             },
             {
-              id: '04',
+              label: '04',
               name: 'ray'
             }
           ]
@@ -249,19 +247,19 @@ DetailContents.defaultProps = {
           title: '収録曲',
           lists: [
             {
-              id: '01',
+              label: '01',
               name: 'pathfinder'
             },
             {
-              id: '02',
+              label: '02',
               name: 'GO'
             },
             {
-              id: '03',
+              label: '03',
               name: '天体観測'
             },
             {
-              id: '04',
+              label: '04',
               name: 'ray'
             }
           ]
@@ -270,19 +268,19 @@ DetailContents.defaultProps = {
           title: '収録曲',
           lists: [
             {
-              id: '01',
+              label: '01',
               name: 'pathfinder'
             },
             {
-              id: '02',
+              label: '02',
               name: 'GO'
             },
             {
-              id: '03',
+              label: '03',
               name: '天体観測'
             },
             {
-              id: '04',
+              label: '04',
               name: 'ray'
             }
           ]
@@ -291,19 +289,19 @@ DetailContents.defaultProps = {
           title: '収録曲',
           lists: [
             {
-              id: '01',
+              label: '01',
               name: 'pathfinder'
             },
             {
-              id: '02',
+              label: '02',
               name: 'GO'
             },
             {
-              id: '03',
+              label: '03',
               name: '天体観測'
             },
             {
-              id: '04',
+              label: '04',
               name: 'ray'
             }
           ]

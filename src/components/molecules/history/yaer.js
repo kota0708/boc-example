@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 import { SIZE_XSM } from '../../../constants/styles/size';
 
 import DinCondensed from '../../atoms/text/din-condensed';
@@ -16,21 +16,21 @@ type Props = {
 const Button = styled.button`
   outline: none;
   position: relative;
-  background-color: ${Color.WHITE};
+  background-color: ${props => props.theme.colors.white};
   padding: 5px 15px 0 0;
 
   &.gray {
-    color: ${Color.GRAY};
+    color: ${props => props.theme.colors.gray};
   }
 
   &.black {
-    color: ${Color.BLACK};
+    color: ${props => props.theme.colors.black};
 
     &:after {
       content: '';
       width: 100vw;
       height: 1px;
-      background-color: ${Color.BLACK};
+      background-color: ${props => props.theme.colors.black};
       position: absolute;
       top: 0;
       bottom: 0;

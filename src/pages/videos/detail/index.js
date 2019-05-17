@@ -43,7 +43,7 @@ const VideosDetail = (props: Props) => {
   }, []);
   const video = selectedData ? (
     <VideosDetailTemplates
-      caouselData={carouselData.date}
+      carouselData={carouselData.date}
       data={selectedData}
     />
   ) : null;

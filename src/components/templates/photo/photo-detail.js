@@ -2,7 +2,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 // import Image from '../../atoms/image';
 import FitImage from '../../atoms/images/fit-image';
 import CloseButton from '../../atoms/buttons/close-button';
@@ -18,7 +18,7 @@ type Props = {
 const Container = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: ${Color.NAVY};
+  background-color: ${props => props.theme.colors.navy};
   position: fixed;
   top: 0;
   left: 0;

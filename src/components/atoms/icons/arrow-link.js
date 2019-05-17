@@ -3,8 +3,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Color from '../../../constants/styles/color';
-
 type Props = {
   color?: string,
   isRotate?: boolean, // rotateするかの真偽
@@ -24,11 +22,11 @@ const G = styled.g`
   fill-rule: nonzero;
 
   &.black {
-    fill: ${Color.BLACK};
+    fill: ${props => props.theme.colors.black};
   }
 
   &.white {
-    fill: ${Color.WHITE};
+    fill: ${props => props.theme.colors.white};
   }
 `;
 

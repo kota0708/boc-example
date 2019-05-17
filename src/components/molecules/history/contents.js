@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { SIZE_XSM } from '../../../constants/styles/size';
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 
 import DinCondensed from '../../atoms/text/din-condensed';
 
@@ -17,17 +17,17 @@ const Wrap = styled.div`
   padding: 16px;
 
   &.black {
-    background-color: ${Color.BLACK}
+    background-color: ${props => props.theme.colors.black};
   }
 
   &.navy {
-    background-color: ${Color.NAVY}
+    background-color: ${props => props.theme.colors.navy};
   }
 `;
 
 const DateWrap = styled.div`
   margin-bottom: 12px;
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
 `;
 
 const DescriptionWrap = styled.p`
@@ -36,7 +36,7 @@ const DescriptionWrap = styled.p`
   font-weight: normal;
   line-height: 1.71;
   letter-spacing: 0.0004em;
-  color: ${Color.WHITE};
+  color: ${props => props.theme.colors.white};
 `;
 
 const Contents = (props: Props) => {

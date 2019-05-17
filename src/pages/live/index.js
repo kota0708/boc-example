@@ -3,9 +3,11 @@ import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Seo from '../seo';
-import Layout from '../layout';
-import { init } from '../actions/global';
+import Seo from '../../seo';
+import Layout from '../../layout';
+import { init } from '../../actions/global';
+
+import Top from '../../components/templates/live/top';
 
 type Props = {
   init: () => void
@@ -34,7 +36,7 @@ const Live = (props: Props) => {
         title="LIVE | BUMP OF CHICKEN official website"
       />
       <Layout>
-        Live!!
+        <Top />
       </Layout>
     </div>
   );

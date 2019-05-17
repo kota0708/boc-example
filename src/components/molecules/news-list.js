@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import Color from '../../constants/styles/color';
+// import Color from '../../constants/styles/color';
 import { SIZE_XSM } from '../../constants/styles/size';
 
 import DinCondensed from '../atoms/text/din-condensed';
@@ -38,7 +38,7 @@ const HeadingInner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
 `;
 
 const HeadingContents = styled.div`
@@ -55,27 +55,27 @@ const HeadingLine = styled.span`
   width: 100%;
   height: 1px;
   margin-left: 19px;
-  background-color: ${Color.GRAY};
+  background-color: ${props => props.theme.colors.gray};
 `;
 
 const StyledLink = styled(Link)`
-  color: ${Color.BLACK};
+  color: ${props => props.theme.colors.black};
   text-decoration: none;
 `;
 
 const HeadingCategory = styled.p`
   &.gray {
-    color: ${Color.GRAY};
+    color: ${props => props.theme.colors.gray};
   }
 
   &.black {
-    color: ${Color.BLACK};
+    color: ${props => props.theme.colors.black};
   }
 `;
 
 const Description = styled.h2`
   font-weight: normal;
-  color: ${Color.BLACK};
+  color: ${props => props.theme.colors.black};
 
   &.small {
     font-size: 14px;

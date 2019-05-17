@@ -2,8 +2,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import Color from '../../../../constants/styles/color';
-
 type Props = {
   title?: string, // アルバムリストのタイトルを受け取る
   lists?: Array<Object> // アルバムのリストを受け取る
@@ -46,7 +44,7 @@ const HeadingLine = styled.div`
     content: '';
     width: 100%;
     height: 1px;
-    background-color: ${Color.GRAY};
+    background-color: ${props => props.theme.colors.gray};;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -61,7 +59,7 @@ const HeadingTitleWrap = styled.div`
 
 const HeadingTitle = styled.h4`
   ${Text}
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
 `;
 
 const Contents = styled.ul`
@@ -75,12 +73,12 @@ const ContentsList = styled.li`
 
 const ListId = styled.p`
   ${LeftWidth}
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
 `;
 
 const ListTitle = styled.p`
   ${RightWidth}
-  color: ${Color.BLACK};
+  color: ${props => props.theme.colors.black};
 `;
 
 const AlbumContents = (props: Props) => {
@@ -91,7 +89,7 @@ const AlbumContents = (props: Props) => {
 
   const list = lists.map((r, i) => (
     <ContentsList key={i}>
-      <ListId>{r.id}</ListId>
+      <ListId>{r.label}</ListId>
       <ListTitle>{r.name}</ListTitle>
     </ContentsList>
   ));
@@ -117,19 +115,19 @@ AlbumContents.defaultProps = {
   title: '収録曲',
   lists: [
     {
-      alid: '01',
+      label: '01',
       name: 'pathfinder'
     },
     {
-      id: '02',
+      label: '02',
       name: 'GO'
     },
     {
-      id: '03',
+      label: '03',
       name: '天体観測'
     },
     {
-      id: '04',
+      label: '04',
       name: 'ray'
     }
   ]

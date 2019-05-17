@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 import { SIZE_SM } from '../../../constants/styles/size';
 import pickUpData from '../../../constants/stub/news/pick-up';
 
@@ -15,19 +15,19 @@ type Props = {
 
 const Wrap = styled.div`
   padding: 35px 25px;
-  background-color: ${Color.NAVY};
+  background-color: ${props => props.theme.colors.navy};
 `;
 
 const TitleWrap = styled.h2`
   margin-bottom: 32px;
   font-weight: 500;
-  color: ${Color.WHITE};
+  color: ${props => props.theme.colors.white};
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   display: block;
-  color: ${Color.WHITE};
+  color: ${props => props.theme.colors.white};
   font-size: 1.4rem;
   font-size: 14px;
   line-height: 1.71;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import Color from '../../constants/styles/color';
+// import Color from '../../constants/styles/color';
 
 const Wrap = styled.div`
   position: absolute;
@@ -25,7 +25,7 @@ const DotScall = keyframes`
 const Loader = styled.span`
   width: 4px;
   height: 4px;
-  background-color: ${Color.WHITE};
+  background-color: ${props => props.theme.colors.white};
   transform: scale(0);
   animation: ${DotScall} 2s infinite ease-in-out;
   :nth-child(1) {

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 
 import Twitter from '../../atoms/icons/twitter';
 import Line from '../../atoms/icons/line';
@@ -17,7 +17,7 @@ const HeadingWrap = styled.h2`
   font-size: 1.4rem;
   font-weight: normal;
   text-align: center;
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
   margin-bottom: 27px;
 `;
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import React, { Fragment } from 'react';
 
 import carouselData from '../../../constants/stub/top/carousel';
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 import nl2br from '../../../util/nl2br';
 
 import Image from '../../atoms/image';
@@ -25,6 +25,7 @@ const ImageWrap = styled.div`
 
 const ContentWrap = styled.div`
   width: 100%;
+  // todo: 変更
   font-size: 1.4rem;
   font-size: 14px;
   line-height: 1.71;
@@ -33,12 +34,12 @@ const ContentWrap = styled.div`
 `;
 
 const Category = styled.h2`
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
   margin-bottom: 7px;
 `;
 
 const Description = styled.p`
-  color: ${Color.Black};
+  color: ${props => props.theme.colors.black};
 `;
 
 // スライドのオプション

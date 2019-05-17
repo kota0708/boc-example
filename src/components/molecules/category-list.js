@@ -3,7 +3,7 @@ import React from 'react';
 import { navigate } from 'gatsby';
 import styled from 'styled-components';
 import { SIZE_MD } from '../../constants/styles/size';
-import Color from '../../constants/styles/color';
+// import Color from '../../constants/styles/color';
 
 import DinCondensed from '../atoms/text/din-condensed';
 
@@ -22,7 +22,7 @@ const StyledLink = styled.a`
   width: 100%;
   display: block;
   text-decoration: none;
-  color: ${Color.BLACK};
+  color: ${props => props.theme.colors.black};
   padding: 13px 0 0 20px; /* 13pxはフォント独自の隙間があるため追加が必要 */
 
   &.hover {
@@ -38,7 +38,7 @@ const StyledLink = styled.a`
         width: 100%;
         height: 100%;
         opacity: 0.22;
-        background: ${Color.GRADATION};
+        background: ${props => props.theme.colors.gradation};
         z-index: -1;
       }
     }
@@ -56,7 +56,7 @@ const Gradation = styled.span`
   display: block;
   width: 100%;
   height: 100%;
-  background: ${Color.GRADATION};
+  background: ${props => props.theme.colors.gradation};
   opacity: 0.22;
   transform: scale(0, 1);
   transform-origin: right;

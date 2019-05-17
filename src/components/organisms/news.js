@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import Color from '../../constants/styles/color';
+// import Color from '../../constants/styles/color';
 
 import newsData from '../../constants/stub/top/news';
 
@@ -30,7 +30,7 @@ const StyledLink = styled(Link)`
       width: 100%;
       height: 100%;
       opacity: 0.22;
-      background: ${Color.GRADATION};
+      background: ${props => props.theme.colors.gradation};
       z-index: -1;
     }
   }

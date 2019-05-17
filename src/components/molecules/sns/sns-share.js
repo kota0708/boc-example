@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { SIZE_XSM } from '../../../constants/styles/size';
 import DinCondensed from '../../atoms/text/din-condensed';
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 
 import Twitter from '../../atoms/icons/twitter';
 import Line from '../../atoms/icons/line';
@@ -23,7 +23,7 @@ const Wrap = styled.div`
     bottom: 0;
     left: 0;
     margin: auto 0;
-    background-color: ${Color.GRAY};
+    background-color: ${props => props.theme.colors.gray};
     z-index: -1;
   }
 `;
@@ -35,16 +35,16 @@ const Inner = styled.div`
 `;
 
 const ShareText = styled.p`
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
   padding: 5px 18px 0 0;
-  background-color: ${Color.WHITE};
+  background-color: ${props => props.theme.colors.white};
 `;
 
 const IconWrap = styled.div`
   display: flex;
   align-items: center;
   padding-left: 18px;
-  background-color: ${Color.WHITE};
+  background-color: ${props => props.theme.colors.white};
 `;
 
 const ButtonWrap = styled.div`

@@ -3,7 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { SIZE_XSM } from '../../../../constants/styles/size';
-import Color from '../../../../constants/styles/color';
 
 import DinCondensed from '../../../atoms/text/din-condensed';
 
@@ -30,7 +29,7 @@ const Image = styled.img`
 `;
 
 const DinCondensedWrap = styled.p`
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
   margin-bottom: 13px;
 `;
 

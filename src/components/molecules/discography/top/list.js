@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 import { SIZE_XSM } from '../../../../constants/styles/size';
-import Color from '../../../../constants/styles/color';
+// import Color from '../../../../constants/styles/color';
 
 import DinCondensed from '../../../atoms/text/din-condensed';
 
@@ -34,7 +34,7 @@ const Inner = styled.div`
       width: 100%;
       height: 100%;
       opacity: 0.22;
-      background: ${Color.GRADATION};
+      background: ${props => props.theme.colors.gradation};
       z-index: -1;
     }
 
@@ -66,7 +66,7 @@ const DinCondensedWrap = styled.h2`
   font-weight: 500;
   font-style: normal;
   margin-bottom: 16px;
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
 `;
 
 const Title = styled.p`
@@ -74,7 +74,7 @@ const Title = styled.p`
   font-size: 1.4rem;
   line-height: 1.71;
   letter-spacing: 0.0004em;
-  color: ${Color.BLACK};
+  color: ${props => props.theme.colors.black};
 `;
 
 const Image = styled.img`

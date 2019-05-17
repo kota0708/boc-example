@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { clickMenu, clickLogo } from './actions/global';
 
 import GlobalStyle from './global-style';
@@ -11,6 +11,7 @@ import Header from './components/organisms/header';
 import Footer from './components/organisms/footer';
 import Menu from './components/templates/menu';
 import FixedLayout from './layout/fixed-layout';
+import styles from './constants/styles';
 
 type Props = {
   children: React.Node,
@@ -85,22 +86,26 @@ class Layout extends Component<Props> {
 
     return (
       <Fragment>
-        <GlobalStyle />
-        <Header
-          onClick={clickMenu}
-          onClickLogo={clickLogo}
-          isMenuOpen={isMenuOpen}
-          pageName={pageName}
-          isSubPage={isSubPage}
-          parentUrl={parentUrl}
-        />
-        {hasMenu}
-        <FixedLayout top={this.state.currentScrollTop} isHeaderModal={isMenuOpen}>
-          <main>
-            { children }
-          </main>
-        </FixedLayout>
-        <Footer />
+        <ThemeProvider theme={styles}>
+          <div>
+            <GlobalStyle />
+            <Header
+              onClick={clickMenu}
+              onClickLogo={clickLogo}
+              isMenuOpen={isMenuOpen}
+              pageName={pageName}
+              isSubPage={isSubPage}
+              parentUrl={parentUrl}
+            />
+            {hasMenu}
+            <FixedLayout top={this.state.currentScrollTop} isHeaderModal={isMenuOpen}>
+              <main>
+                { children }
+              </main>
+            </FixedLayout>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </Fragment>
     );
   }

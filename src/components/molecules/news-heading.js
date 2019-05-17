@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { SIZE_MD } from '../../constants/styles/size';
-import Color from '../../constants/styles/color';
+// import Color from '../../constants/styles/color';
 
 import DinCondensed from '../atoms/text/din-condensed';
 import ArrowLink from '../atoms/icons/arrow-link';
@@ -21,7 +21,7 @@ const ArrowWrap = styled.div`
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  color: ${Color.BLACK};
+  color: ${props => props.theme.colors.black};
   text-decoration: none;
 `;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import LogoName from '../atoms/logo/logo-name';
-import Color from '../../constants/styles/color';
+// import Color from '../../constants/styles/color';
 
 const FooterWrap = styled.footer`
   width: 100%;
@@ -19,7 +19,7 @@ const FooterText = styled.p`
   font-size: 1.4rem;
   line-height: 1.71;
   letter-spacing: 0.004em;
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
   margin-bottom: 40px;
 `;
 
@@ -32,7 +32,7 @@ const FooterCopy = styled.small`
   font-size: 1rem;
   line-height: 1.4;
   letter-spacing: 0.004em;
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
 `;
 
 // フッターコンポーネント

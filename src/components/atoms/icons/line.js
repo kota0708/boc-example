@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 
 const Svg = styled.svg`
   width: 100%;
@@ -15,11 +15,11 @@ const G = styled.g`
 `;
 
 const PathOut = styled.path`
-  fill: ${Color.WHITE};
+  fill: ${props => props.theme.colors.white};
 `;
 
 const PathIn = styled.path`
-  fill: ${Color.BLACK};
+  fill: ${props => props.theme.colors.black};
   fill-rule: nonzero;
 `;
 

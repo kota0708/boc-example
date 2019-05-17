@@ -3,13 +3,15 @@ import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 import Seo from '../../seo';
 import Layout from '../../layout';
 import { init } from '../../actions/global';
 import { loadJSON } from '../../actions/videos';
 import { makeSelectedJsonData, makeSelectedIsLoading } from '../../selectors/videos';
+import VideoTopTemplate from '../../components/templates/videos/video-top-template';
 
 type Props = {
   init: () => void,
@@ -17,6 +19,10 @@ type Props = {
   isLoading: boolean,
   data: Object
 };
+
+const Container = styled.div`
+  padding-top: 80px;
+`;
 
 const Videos = (props: Props) => {
   const {
@@ -45,11 +51,14 @@ const Videos = (props: Props) => {
   console.log(data);
 
 
-  const constens = (!isLoading && data !== null) ? data.data.map(d => (
+  /* const constens = (!isLoading && data !== null) ? data.data.map(d => (
     <Link to={`/videos/detail/?id=${d.id}`} key={d.id}>
       {d.title}
     </Link>
-  )) : (<div>loading...</div>);
+  )) : (<div>loading...</div>); */
+
+  const contents = (!isLoading && data !== null)
+    ? (<VideoTopTemplate data={data.data} />) : <div>loading...</div>;
 
   return (
     <div>
@@ -59,7 +68,9 @@ const Videos = (props: Props) => {
         title="VIDEOS | BUMP OF CHICKEN official website"
       />
       <Layout>
-        {constens}
+        <Container>
+          {contents}
+        </Container>
       </Layout>
     </div>
   );

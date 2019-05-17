@@ -6,7 +6,7 @@ import Image from '../atoms/images/fit-image';
 
 import Member from '../molecules/profile/member';
 import HistoryLink from '../molecules/profile/history-link';
-import Color from '../../constants/styles/color';
+// import Color from '../../constants/styles/color';
 
 const ContentsWrap = styled.div`
   margin-bottom: 42px;
@@ -17,7 +17,7 @@ const SnsLinkWrap = styled.div`
 `;
 
 const SnsLink = styled.a`
-  color: ${Color.BLACK};
+  color: ${props => props.theme.colors.black};
   text-decoration: none;
   font-size: 10px;
   font-size: 1rem;

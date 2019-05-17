@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 
-import Color from '../../constants/styles/color';
+// import Color from '../../constants/styles/color';
 import DotLoader from '../atoms/dot-loader';
 import ArtistImage from '../molecules/artist-image';
 
@@ -37,7 +37,7 @@ const ListText = styled.p`
 const ContentsWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
-  background-color: ${Color.NAVY};
+  background-color: ${props => props.theme.colors.navy};
 `;
 
 const LoaderWrap = styled.div`

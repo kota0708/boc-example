@@ -11,7 +11,7 @@ type Props = {
 // スライドのデフォルトのオプション
 const defaultOpt = {
   arrows: false,
-  centerMode: true,
+  // centerMode: true,
   adaptiveHeight: true
 };
 
@@ -35,6 +35,7 @@ const Carousel = (props: Props) => {
 Carousel.defaultProps = {
   opt: {
     speed: 500,
+    centerMode: true,
     slidesToShow: 1, // 1フレーム時に表示する数
     slidesToScroll: true // スワイプの真偽
   }

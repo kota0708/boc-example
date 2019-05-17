@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import Color from '../../constants/styles/color';
 
 import ArrowLink from '../atoms/icons/arrow-link';
 
@@ -11,7 +10,7 @@ type Props = {
 };
 
 const Wrap = styled.div`
-  background-color: ${Color.BLACK};
+  background-color: ${props => props.theme.colors.black};
 `;
 
 const StyleLink = styled.a`
@@ -29,8 +28,11 @@ const Text = styled.p`
   font-size: 1.4rem;
   line-height: 1.71;
   letter-spacing: 0.0004em;
-  color: ${Color.WHITE};
+  color: ${props => props.theme.colors.white};
   padding-right: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const IconWrap = styled.div`
@@ -64,6 +66,8 @@ const PanelLink = (props: Props) => {
 };
 
 PanelLink.defaultProps = {
+  // 仮のデータです
+  // TODO: 後でJSONかjsで外部化する
   text: 'TOWER RECORDS',
   link: '/'
 };

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 import { SIZE_XSM, SIZE_MD } from '../../../constants/styles/size';
 import DinCondensed from '../../atoms/text/din-condensed';
-import Color from '../../../constants/styles/color';
+// import Color from '../../../constants/styles/color';
 import member from '../../../constants/member';
 
 const Wrap = styled.div`
@@ -34,12 +34,12 @@ const Contents = styled.div`
 `;
 
 const Responsible = styled.p`
-  color: ${Color.WHITE};
+  color: ${props => props.theme.colors.white};
   margin-bottom: 12px;
 `;
 
 const NameEn = styled.h2`
-  color: ${Color.BLACK};
+  color: ${props => props.theme.colors.black};
   word-break: break-word;
   margin-bottom: 6px;
 `;
@@ -53,13 +53,13 @@ const Text = css`
 
 const NameJa = styled.p`
   ${Text}
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
   margin-bottom: 16px;
 `;
 
 const Description = styled.div`
   ${Text}
-  color: ${Color.BLACK};
+  color: ${props => props.theme.colors.black};
 `;
 
 const Member = () => {

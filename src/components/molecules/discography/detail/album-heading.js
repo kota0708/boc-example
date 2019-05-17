@@ -2,7 +2,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Color from '../../../../constants/styles/color';
 import nl2br from '../../../../util/nl2br';
 
 type Props = {
@@ -47,7 +46,7 @@ const Description = styled.p`
   font-size: 1.4rem;
   line-height: 1.71;
   letter-spacing: 0.4px;
-  color: ${Color.GRAY};
+  color: ${props => props.theme.colors.gray};
 `;
 
 const AlbumHeading = (props: Props) => {
