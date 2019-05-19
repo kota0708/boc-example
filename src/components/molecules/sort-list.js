@@ -16,9 +16,7 @@ type Props = {
 };
 
 const Wrap = styled.div`
-  /* 284 / 375 * 100 */
-  width: 75.7%;
-  max-width: 400px;
+  width: 100%;
   background-color: ${props => props.theme.colors.black};
   display: block;
 `;
@@ -43,6 +41,7 @@ const StyleLink = styled(Link)`
   position: relative;
   z-index: 1;
 
+  /* カテゴリーが現在の場合 */
   &.current {
     background: ${props => props.theme.colors.gradation};
 

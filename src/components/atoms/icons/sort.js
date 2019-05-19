@@ -20,7 +20,7 @@ const PathIn = styled.path`
 `;
 
 const Sort = () => (
-  <Svg width="48" height="40" viewbox="0 0 48 40">
+  <Svg width="48" height="40" viewBox="0 0 48 40">
     <G>
       <PathIn d="M48 0H0v40h48z" />
       <PathOut d="M40 10H8v2h32zM40 19H8v2h32z" />
