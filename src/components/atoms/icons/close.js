@@ -8,7 +8,7 @@ const Svg = styled.svg`
 `;
 
 const G = styled.g`
-  fill: ${props => props.theme.colors.black};
+  fill: ${props => props.theme.colors.white};
   fill-rule: nonzero;
 `;
 
