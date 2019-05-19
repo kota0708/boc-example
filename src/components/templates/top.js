@@ -12,8 +12,6 @@ import Fade from '../molecules/slide/fade';
 import NewsHeading from '../molecules/news-heading';
 import GlobalSlide from '../organisms/slide/global-slide';
 
-import Sort from '../organisms/sort';
-
 import News from '../organisms/news';
 
 type Props = {
@@ -52,7 +50,6 @@ const Top = (props: Props) => {
 
   return (
     <Fragment>
-      <Sort />
       <Heading>
         <LogoNameWrap>
           <LogoName />

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import PickUp from '../../molecules/news/pick-up';
 import NewsList from '../../organisms/news';
+import Sort from '../../organisms/sort';
 import type { TNewsList, TNewsPickup } from '../../../flow';
 
 type Props = {
@@ -32,6 +33,7 @@ const NewsTop = (props: Props) => {
     <Wrap>
       {pickUp}
       <NewsList data={listData} />
+      <Sort />
     </Wrap>
   );
 };

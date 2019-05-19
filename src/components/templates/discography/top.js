@@ -5,6 +5,7 @@ import styled from 'styled-components';
 // import { SIZE_LG } from '../../../constants/styles/size';
 
 import Lists from '../../organisms/discography/top/lists';
+import Sort from '../../organisms/sort';
 // import Share from '../../molecules/sns/sns-share';
 
 
@@ -21,6 +22,7 @@ const Top = (props: Props) => {
 
   return (
     <Wrap>
+      <Sort />
       <Lists data={data} />
     </Wrap>
   );

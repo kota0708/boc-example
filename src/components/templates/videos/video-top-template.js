@@ -3,6 +3,8 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 
 import VideoCard from '../../organisms/videos/video-card';
+import Sort from '../../organisms/sort';
+
 import { TVideoCard } from '../../../flow';
 
 type Props = {
@@ -22,6 +24,7 @@ const VideoTopTemplate = (props: Props) => {
   return (
     <Fragment>
       {cards}
+      <Sort />
     </Fragment>
   );
 };
