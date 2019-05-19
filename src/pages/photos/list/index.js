@@ -7,7 +7,6 @@ import { reduce } from 'lodash';
 import { CSSTransition } from 'react-transition-group';
 
 import Seo from '../../../seo';
-import Layout from '../../../layout';
 import { init } from '../../../actions/global';
 import {
   getLiveIdByUrl,
@@ -25,8 +24,8 @@ import {
   makeSelectIsLoading
 } from '../../../selectors/photo';
 
-import PhotoTemplate from '../../../components/templates/photo/photo-template';
-import PhotoDetail from '../../../components/templates/photo/photo-detail';
+import PhotoTemplate from '../../../components/templates/photos/photo-template';
+import PhotoDetail from '../../../components/templates/photos/photo-detail';
 
 type Props = {
   init: () => void, // 初期化
@@ -105,7 +104,7 @@ const PhotoListPage = (props: Props) => {
         lang="ja"
         title={`PHOTOS ${title} | BUMP OF CHICKEN official website`}
       />
-      <Layout>
+      <div>
         {template}
         <CSSTransition
           in={isModal}
@@ -121,7 +120,7 @@ const PhotoListPage = (props: Props) => {
             index={selectedIndex}
           />
         </CSSTransition>
-      </Layout>
+      </div>
     </div>
   );
 };

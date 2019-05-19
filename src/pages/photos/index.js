@@ -4,10 +4,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Seo from '../../seo';
-import Layout from '../../layout';
 import { init } from '../../actions/global';
 
-import PhotoTop from '../../components/templates/photo';
+import PhotoTop from '../../components/templates/photos';
 
 type Props = {
   init: () => void
@@ -31,9 +30,7 @@ const Photos = (props: Props) => {
         lang="ja"
         title="BUMP OF CHICKEN official website"
       />
-      <Layout>
-        <PhotoTop />
-      </Layout>
+      <PhotoTop />
     </div>
   );
 };

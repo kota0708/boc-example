@@ -7,7 +7,6 @@ import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 
 import Seo from '../../seo';
-import Layout from '../../layout';
 import { init } from '../../actions/global';
 import { loadJSON } from '../../actions/videos';
 import { makeSelectedJsonData, makeSelectedIsLoading } from '../../selectors/videos';
@@ -67,11 +66,9 @@ const Videos = (props: Props) => {
         lang="ja"
         title="VIDEOS | BUMP OF CHICKEN official website"
       />
-      <Layout>
-        <Container>
-          {contents}
-        </Container>
-      </Layout>
+      <Container>
+        {contents}
+      </Container>
     </div>
   );
 };

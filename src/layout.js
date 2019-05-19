@@ -2,6 +2,7 @@
 import React, { Component, Fragment } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import styled, { ThemeProvider } from 'styled-components';
 import { clickMenu, clickLogo } from './actions/global';
@@ -51,7 +52,7 @@ class Layout extends Component<Props> {
     return nextProps !== this.props;
   }
 
-  static getDerivedStateFromProps(nextProps) {
+  static getDerivedStateFromProps(nextProps, nextState) {
     if (nextProps.isMenuOpen) {
       const element = document.documentElement;
       const y = element.scrollTop || document.body.scrollTop;
@@ -59,7 +60,11 @@ class Layout extends Component<Props> {
         currentScrollTop: y
       };
     }
-    return null;
+    const { currentScrollTop } = nextState;
+    if (typeof window !== 'undefined') {
+      window.setTimeout(() => window.scrollTo(0, currentScrollTop), 0);
+    }
+    return { currentScrollTop: 0 };
   }
 
   render() {
@@ -83,7 +88,6 @@ class Layout extends Component<Props> {
         />
       </MenuWrap>
     ) : null);
-
     return (
       <Fragment>
         <ThemeProvider theme={styles}>
@@ -100,7 +104,17 @@ class Layout extends Component<Props> {
             {hasMenu}
             <FixedLayout top={this.state.currentScrollTop} isHeaderModal={isMenuOpen}>
               <main>
-                { children }
+                <TransitionGroup>
+                  <CSSTransition
+                    key={`${pageName}-${parentUrl}`}
+                    mountOnEnter
+                    unmountOnExit
+                    timeout={600}
+                    classNames="fade"
+                  >
+                    { children }
+                  </CSSTransition>
+                </TransitionGroup>
               </main>
             </FixedLayout>
             <Footer />

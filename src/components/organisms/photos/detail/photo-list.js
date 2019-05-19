@@ -3,8 +3,8 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 
 // import Color from '../../constants/styles/color';
-import DotLoader from '../atoms/dot-loader';
-import ArtistImage from '../molecules/artist-image';
+import DotLoader from '../../../atoms/dot-loader';
+import ArtistImage from '../../../molecules/photos/detail/artist-image';
 
 type Props = {
   date: string, // 日付をうけとる

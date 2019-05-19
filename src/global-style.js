@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     src: url('/font/URWDINCond-Regular.eot');
     src: url('/font/URWDINCond-Regular.woff') format('woff'),
           url('/font/URWDINCond-Regular.ttf') format('truetype');
+    font-display: swap;
   }
 
   html {

@@ -55,7 +55,7 @@ const Year = (props: Props) => {
       className={color}
       onClick={(e) => {
         e.preventDefault();
-        onClick();
+        onClick(year);
       }}
     >
       <DinCondensed size={SIZE_XSM} text={year} />

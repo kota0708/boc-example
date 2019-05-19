@@ -1,19 +1,16 @@
 // @flow
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
-// import Color from '../../constants/styles/color';
-import { SIZE_XSM } from '../../constants/styles/size';
 
+import { SIZE_XSM } from '../../constants/styles/size';
 import DinCondensed from '../atoms/text/din-condensed';
 
 type Props = {
-  date?: string, // 日付を受け取る
-  category?: string, // カテゴリーを受け取る
-  description?: string, // 詳細を受け取る
-  categoryColor?: string, // カテゴリーの色を受け取る
-  descriptionSize?: string, // 詳細のフォントサイズを受け取る
-  link?: string // カテゴリーのリンクを受け取る
+  date: string, // 日付を受け取る
+  category: string, // カテゴリーを受け取る
+  description: string, // 詳細を受け取る
+  categoryColor: string, // カテゴリーの色を受け取る
+  descriptionSize: string // 詳細のフォントサイズを受け取る
 };
 
 const Content = styled.div`
@@ -58,11 +55,6 @@ const HeadingLine = styled.span`
   background-color: ${props => props.theme.colors.gray};
 `;
 
-const StyledLink = styled(Link)`
-  color: ${props => props.theme.colors.black};
-  text-decoration: none;
-`;
-
 const HeadingCategory = styled.p`
   &.gray {
     color: ${props => props.theme.colors.gray};
@@ -95,22 +87,8 @@ const NewsList = (props: Props) => {
     category,
     description,
     categoryColor,
-    descriptionSize,
-    link
+    descriptionSize
   } = props;
-
-  // リンクがある場合
-  const catefgory = (link !== '') ? (
-    <StyledLink to={link}>
-      <HeadingCategory className={categoryColor}>
-        <DinCondensed size={SIZE_XSM} text={category} />
-      </HeadingCategory>
-    </StyledLink>
-  ) : (
-    <HeadingCategory className={categoryColor}>
-      <DinCondensed size={SIZE_XSM} text={category} />
-    </HeadingCategory>
-  );
 
   return (
     <Content>
@@ -120,7 +98,9 @@ const NewsList = (props: Props) => {
             <HeadingDate>
               <DinCondensed size={SIZE_XSM} text={date} />
             </HeadingDate>
-            {catefgory}
+            <HeadingCategory className={categoryColor}>
+              <DinCondensed size={SIZE_XSM} text={category} />
+            </HeadingCategory>
           </HeadingContents>
           <HeadingLine />
         </HeadingInner>
@@ -128,15 +108,6 @@ const NewsList = (props: Props) => {
       <Description className={descriptionSize}>{description}</Description>
     </Content>
   );
-};
-
-NewsList.defaultProps = {
-  date: '2019.04.05',
-  category: 'MAGAZINE',
-  description: '「月虹」がTVアニメ「からくりサーカス」第3クールエンディングテーマに起用',
-  categoryColor: 'gray',
-  descriptionSize: 'small',
-  link: ''
 };
 
 export default NewsList;

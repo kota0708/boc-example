@@ -3,14 +3,12 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-// import Color from '../../../constants/styles/color';
 import { SIZE_SM } from '../../../constants/styles/size';
-import pickUpData from '../../../constants/stub/news/pick-up';
-
 import DinCondensed from '../../atoms/text/din-condensed';
+import type { TNewsPickup } from '../../../flow';
 
 type Props = {
-  data?: Array<string>, // pickupのデータを受け取る
+  data: Array<string>, // pickupのデータを受け取る
 };
 
 const Wrap = styled.div`
@@ -49,9 +47,9 @@ const Lists = styled.li`
 const PickUp = (props: Props) => {
   const { data } = props;
 
-  const pickUpList = data.map((r, i) => (
+  const pickUpList = data.map((r: TNewsPickup, i) => (
     <Lists key={i}>
-      <StyledLink to={r.link}>
+      <StyledLink to={`/news/pages/?id=${r.id}`}>
         {r.title}
       </StyledLink>
     </Lists>
@@ -67,10 +65,6 @@ const PickUp = (props: Props) => {
       </List>
     </Wrap>
   );
-};
-
-PickUp.defaultProps = {
-  data: pickUpData.data
 };
 
 export default PickUp;

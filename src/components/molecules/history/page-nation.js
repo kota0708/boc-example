@@ -3,16 +3,13 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 
 import { SIZE_XSM } from '../../../constants/styles/size';
-// import Color from '../../../constants/styles/color';
-
 import DinCondensed from '../../atoms/text/din-condensed';
-
 import ArrowLink from '../../atoms/icons/arrow-link';
 
 type Props = {
-  isNext?: boolean, // 次のページのページネーションか受け取る
-  year?: number, // 年を受け取る
-  onClick?: () => void // クリックイベントを受け取る
+  isNext: boolean, // 次のページのページネーションか受け取る
+  year: string, // 年を受け取る
+  onClick: () => void // クリックイベントを受け取る
 }
 
 const Wrap = styled.button`
@@ -77,12 +74,6 @@ const PageNation = (props: Props) => {
       </Wrap>
     </Fragment>
   );
-};
-
-PageNation.defaultProps = {
-  isNext: true,
-  year: 2019,
-  onClick: () => null
 };
 
 export default PageNation;

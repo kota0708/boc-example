@@ -5,9 +5,9 @@ import styled from 'styled-components';
 import Year from '../../molecules/history/yaer';
 
 type Props = {
-  years?: Array<number>, // 年の配列を受け取る
-  onClick?: () => void, // クリックイベントを受け取る
-  currentYear?: number, // 現在選ばれている年を受け取る
+  years: Array<number>, // 年の配列を受け取る
+  onClick: () => void, // クリックイベントを受け取る
+  currentYear: string // 現在選ばれている年を受け取る
 }
 
 const Wrap = styled.div`
@@ -40,37 +40,6 @@ const YearList = (props: Props) => {
       { year }
     </Fragment>
   );
-};
-
-YearList.defaultProps = {
-  years: [
-    2019,
-    2018,
-    2017,
-    2016,
-    2015,
-    2014,
-    2013,
-    2012,
-    2011,
-    2010,
-    2009,
-    2008,
-    2007,
-    2006,
-    2005,
-    2004,
-    2003,
-    2002,
-    2001,
-    2000,
-    1999,
-    1998,
-    1997,
-    1996
-  ], // 仮のデータです。
-  onClick: () => null,
-  currentYear: 2018
 };
 
 export default YearList;

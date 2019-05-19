@@ -2,15 +2,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import listData from '../../../constants/stub/news/list';
-import pickUpData from '../../../constants/stub/news/pick-up';
-
 import PickUp from '../../molecules/news/pick-up';
 import NewsList from '../../organisms/news';
+import type { TNewsList, TNewsPickup } from '../../../flow';
 
 type Props = {
-  listData?: Array<Object>, // newsのリストのデータを受け取る
-  pickUpData?: Array<Object>, // ピックアップのデータを受け取る
+  listData: Array<TNewsList>, // newsのリストのデータを受け取る
+  pickUpData: Array<TNewsPickup>, // ピックアップのデータを受け取る
 };
 
 const Wrap = styled.div`
@@ -23,7 +21,6 @@ const PickUpWrap = styled.div`
 
 const NewsTop = (props: Props) => {
   const { listData, pickUpData } = props;
-
   // ピックアップがない場合は非表示
   const pickUp = (pickUpData.length !== 0) ? (
     <PickUpWrap>
@@ -37,11 +34,6 @@ const NewsTop = (props: Props) => {
       <NewsList data={listData} />
     </Wrap>
   );
-};
-
-NewsTop.defaultProps = {
-  pickUpData: pickUpData.data,
-  listData: listData.data
 };
 
 export default NewsTop;

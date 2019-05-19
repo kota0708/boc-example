@@ -7,7 +7,6 @@ import { createStructuredSelector } from 'reselect';
 import { init } from '../../../actions/global';
 import { loadJSON } from '../../../actions/videos';
 import Seo from '../../../seo';
-import Layout from '../../../layout';
 import { makeSelectedDetailData, makeSelectedJsonData } from '../../../selectors/videos';
 import carouselData from '../../../constants/stub/top/carousel';
 import VideosDetailTemplates from '../../../components/templates/videos/videos-detail-templates';
@@ -55,9 +54,7 @@ const VideosDetail = (props: Props) => {
         lang="ja"
         title="BUMP OF CHICKEN official website"
       />
-      <Layout>
-        {video}
-      </Layout>
+      {video}
     </div>
   );
 };

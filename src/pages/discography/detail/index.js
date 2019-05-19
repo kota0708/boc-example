@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Seo from '../../../seo';
-import Layout from '../../../layout';
 import { init } from '../../../actions/global';
 
 import Detail from '../../../components/templates/discography/detail';
@@ -35,9 +34,7 @@ const Discography = (props: Props) => {
         lang="ja"
         title="DISCOGRAPHY | BUMP OF CHICKEN official website"
       />
-      <Layout>
-        <Detail />
-      </Layout>
+      <Detail />
     </div>
   );
 };

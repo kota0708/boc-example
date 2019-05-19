@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import FitImage from '../../atoms/images/fit-image';
 import CloseButton from '../../atoms/buttons/close-button';
 import ControlPlay from '../../atoms/icons/control-play';
-import PhotoPageIndicators from '../../molecules/photo-page-indicators';
+import PhotoPageIndicators from '../../molecules/photos/detail/photo-page-indicators';
 
 type Props = {
   index: number, // 表示させるURLIndex

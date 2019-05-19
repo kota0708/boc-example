@@ -10,7 +10,7 @@ export default {
 }; */
 
 const colors = {
-  gradation: 'linear-gradient(270deg, #A7CEFF 5%, #E8FFF3 27%, #E9AFFF 54%, #90B1FF 95%);',
+  gradation: 'linear-gradient(to left, #a7ceff, #e8fff3 25%, #e9afff 54%, #90b1ff)',
   black: '#000',
   gray: '#999',
   gray_light: '#efefef',

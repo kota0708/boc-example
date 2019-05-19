@@ -2,14 +2,12 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-// import Color from '../../constants/styles/color';
-
-import newsData from '../../constants/stub/top/news';
 
 import NewsList from '../molecules/news-list';
+import type { TNewsList } from '../../flow';
 
 type Props = {
-  data?: Array<Object>, // newsのリストのデータを受け取る
+  data: Array<TNewsList>, // newsのリストのデータを受け取る
 };
 
 const StyledLink = styled(Link)`
@@ -38,9 +36,8 @@ const StyledLink = styled(Link)`
 
 const News = (props: Props) => {
   const { data } = props;
-
-  const newsLists = data.map((r, i) => (
-    <StyledLink key={i} to={r.link}>
+  const newsLists = data.map((r: TNewsList, i) => (
+    <StyledLink key={i} to={`/news/pages/?id=${r.id}`}>
       <NewsList
         date={r.date}
         category={r.category}
@@ -54,10 +51,6 @@ const News = (props: Props) => {
       {newsLists}
     </div>
   );
-};
-
-News.defaultProps = {
-  data: newsData.data
 };
 
 export default News;

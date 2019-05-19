@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import photoArtists from '../../constants/stub/top/photo-artists';
 import carouselData from '../../constants/stub/top/carousel';
-import newsData from '../../constants/stub/top/news';
+// import newsData from '../../constants/stub/top/news';
 
 import LogoName from '../atoms/logo/logo-name';
 
@@ -17,7 +17,7 @@ import News from '../organisms/news';
 type Props = {
   artists?: Array<string>, // フェードさせる写真のurlを受け取る
   carouselData?: Array<Object>, // カルーセルのデータを受け取る
-  newsData?: Array<Object> // newsデータを受け取る
+  newsData: Array<TNewsList> // newsデータを受け取る
 };
 
 const Heading = styled.div`
@@ -85,8 +85,7 @@ const Top = (props: Props) => {
 
 Top.defaultProps = {
   artists: photoArtists.photos,
-  carouselData: carouselData.date,
-  newsData: newsData.data
+  carouselData: carouselData.date
 };
 
 export default Top;

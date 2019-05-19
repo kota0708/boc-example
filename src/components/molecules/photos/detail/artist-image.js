@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import LazyLoad from 'react-lazyload';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import Image from '../atoms/image';
-import easeOutSine from '../../constants/styles/easing/ease-out-sine';
+import Image from '../../../atoms/image';
+import easeOutSine from '../../../../constants/styles/easing/ease-out-sine';
 
 type Props = {
   imgSrc: string, // 画像のsrcをうけとる

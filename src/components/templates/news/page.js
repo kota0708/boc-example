@@ -1,15 +1,15 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import pageData from '../../../constants/stub/news/page';
 import { SIZE_LG } from '../../../constants/styles/size';
 
 import NewsList from '../../molecules/news-list';
 import Share from '../../molecules/sns/sns-share';
+import type { TNewsDetail } from '../../../flow';
 
 
 type Props = {
-  pageData?: Object, // ページデータを受け取る
+  pageData: TNewsDetail, // ページデータを受け取る
 };
 
 const Wrap = styled.div`
@@ -45,7 +45,6 @@ const NewsPage = (props: Props) => {
           categoryColor="black"
           description={pageData.title}
           descriptionSize={SIZE_LG}
-          link="/news" // ここのurlもいずれ動的なurlになる
         />
       </NewListWrap>
       <ContentsWrap
@@ -58,10 +57,6 @@ const NewsPage = (props: Props) => {
       </ShareWrap>
     </Wrap>
   );
-};
-
-NewsPage.defaultProps = {
-  pageData
 };
 
 export default NewsPage;

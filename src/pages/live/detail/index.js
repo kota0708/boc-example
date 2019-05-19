@@ -3,24 +3,25 @@ import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Seo from '../seo';
-import Layout from '../layout';
-import { init } from '../actions/global';
+import Seo from '../../../seo';
+import { init } from '../../../actions/global';
+
+import Detail from '../../../components/templates/live/detail';
 
 type Props = {
   init: () => void
 };
 
-const Goods = (props: Props) => {
+const Live = (props: Props) => {
   const {
     init
   } = props;
 
   useEffect(() => {
     init({
-      pageName: 'GOODS',
-      isSubPage: false,
-      parentUrl: ''
+      pageName: 'LIVE',
+      isSubPage: true,
+      parentUrl: '/live'
     });
     // unmount
     return () => null;
@@ -31,15 +32,12 @@ const Goods = (props: Props) => {
       <Seo
         description="BUMP OF CHICKENオフィシャルサイト。ニュース、ディスコグラフィー、スタッフダイアリー、GOODS、PICSなど。"
         lang="ja"
-        title="GOODS | BUMP OF CHICKEN official website"
+        title="LIVE | BUMP OF CHICKEN official website"
       />
-      <Layout>
-        GOODS!!
-      </Layout>
+      <Detail />
     </div>
   );
 };
-
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -49,4 +47,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Goods);
+)(Live);

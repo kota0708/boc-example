@@ -21,6 +21,12 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-flow'
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/layout.js`),
+      }
     }
   ]
 };

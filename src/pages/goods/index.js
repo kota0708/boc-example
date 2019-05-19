@@ -2,25 +2,29 @@
 import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
-import Seo from '../seo';
-import Layout from '../layout';
-import { init } from '../actions/global';
-
-import HistoryTemplate from '../components/templates/history';
+import Seo from '../../seo';
+import { init } from '../../actions/global';
+import GoodsTopTemplate from '../../components/templates/goods/goods-top-template';
+import GoodsData from '../../constants/goods';
 
 type Props = {
   init: () => void
 };
 
-const History = (props: Props) => {
+const Container = styled.div`
+  padding-top: 75px;
+`;
+
+const Goods = (props: Props) => {
   const {
     init
   } = props;
 
   useEffect(() => {
     init({
-      pageName: 'HISTORY',
+      pageName: 'GOODS',
       isSubPage: false,
       parentUrl: ''
     });
@@ -33,14 +37,15 @@ const History = (props: Props) => {
       <Seo
         description="BUMP OF CHICKENオフィシャルサイト。ニュース、ディスコグラフィー、スタッフダイアリー、GOODS、PICSなど。"
         lang="ja"
-        title="History | BUMP OF CHICKEN official website"
+        title="GOODS | BUMP OF CHICKEN official website"
       />
-      <Layout>
-        <HistoryTemplate />
-      </Layout>
+      <Container>
+        <GoodsTopTemplate data={GoodsData.data} />
+      </Container>
     </div>
   );
 };
+
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -50,4 +55,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(History);
+)(Goods);

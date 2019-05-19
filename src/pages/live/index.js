@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Seo from '../../seo';
-import Layout from '../../layout';
 import { init } from '../../actions/global';
 
 import Top from '../../components/templates/live/top';
@@ -35,9 +34,7 @@ const Live = (props: Props) => {
         lang="ja"
         title="LIVE | BUMP OF CHICKEN official website"
       />
-      <Layout>
-        <Top />
-      </Layout>
+      <Top />
     </div>
   );
 };

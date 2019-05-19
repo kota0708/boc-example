@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import Seo from '../seo';
-import Layout from '../layout';
 import { init } from '../actions/global';
 
 import ProfileTemplate from '../components/templates/profile';
@@ -39,9 +38,7 @@ const Profile = (props: Props) => {
         lang="ja"
         title="PROFILE | BUMP OF CHICKEN official website"
       />
-      <Layout>
-        <ProfileTemplate />
-      </Layout>
+      <ProfileTemplate />
     </Wrap>
   );
 };
