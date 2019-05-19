@@ -1,3 +1,4 @@
+/* @flow */
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 
@@ -5,6 +6,12 @@ import { TweenLite, Power0 } from 'gsap';
 
 import SortList from '../molecules/sort-list';
 import SortIcon from '../atoms/icons/sort';
+
+type Props = {
+  categorys?: Array, // カテゴリーのリストを受け取る
+  current?: string, // 現在のカテゴリーを受け取る
+  linkName?: string, // リンク先の名前を受け取る 例: /newsならnews
+};
 
 const Wrap = styled.div`
   width: 100%;
@@ -33,9 +40,15 @@ const IconWrap = styled.div`
   cursor: pointer;
 `;
 
-const Sort = () => {
+const Sort = (props: Props) => {
 
-  let SortListDom = useRef(null);
+  const {
+    categorys,
+    current,
+    linkName
+  } = props;
+
+  let SortListDom = useRef(null); // リストのDOMを取得
 
   // state
   const [getListHeight, setListHeight] = useState(0);
@@ -49,7 +62,7 @@ const Sort = () => {
   }, []);
 
   const onClick = () => {
-    const list = SortListDom;
+    const list = SortListDom; // domを継承
 
     // メニューが開いているか確認
     if (!getIsOpen) {
@@ -83,6 +96,9 @@ const Sort = () => {
       >
         <SortList
           onClick={onClick}
+          categorys={categorys}
+          current={current}
+          linkName={linkName}
         />
       </SortListWrap>
       <IconWrap
@@ -96,4 +112,16 @@ const Sort = () => {
     </Wrap>
   );
 };
+
+Sort.defaultProps = {
+  categorys: [
+    'ALL',
+    'MUSIC',
+    'LIVE',
+    'SPOT'
+  ],
+  current: 'MUSIC',
+  linkName: ''
+};
+
 export default Sort;

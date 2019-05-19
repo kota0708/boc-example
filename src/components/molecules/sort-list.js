@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 
 import { SIZE_SM } from '../../constants/styles/size';
@@ -9,11 +9,37 @@ import DinCondensed from '../atoms/text/din-condensed';
 import Close from '../atoms/icons/close';
 
 type Props = {
-  categorys?: Array, // カテゴリーのリストを受け取る
-  current?: string, // 現在のカテゴリーを受け取る
-  linkName?: string, // リンク先の名前を受け取る 例: /newsならnews
-  onClick?: () => void // クローズボタンのクリックイベントを受け取る
+  categorys: Array, // カテゴリーのリストを受け取る
+  current: string, // 現在のカテゴリーを受け取る
+  linkName: string, // リンク先の名前を受け取る 例: /newsならnews
+  onClick: () => void // クローズボタンのクリックイベントを受け取る
 };
+
+// グラデーションの処理
+const Gradation = css`
+  background-color: ${props => props.theme.colors.white};
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.22;
+    background: ${props => props.theme.colors.gradation};
+    z-index: -1;
+  }
+
+  & {
+    .hover {
+      color: ${props => props.theme.colors.black};
+    }
+  }
+`;
 
 const Wrap = styled.div`
   width: 100%;
@@ -43,36 +69,11 @@ const StyleLink = styled(Link)`
 
   /* カテゴリーが現在の場合 */
   &.current {
-    background: ${props => props.theme.colors.gradation};
-
-    & {
-      .hover {
-        color: ${props => props.theme.colors.black};
-      }
-    }
+    ${Gradation};
   }
 
   :hover {
-    & {
-      .hover {
-        color: ${props => props.theme.colors.black};
-      }
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      margin: auto 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-      opacity: 1;
-      background: ${props => props.theme.colors.gradation};
-      z-index: -1;
-    }
+    ${Gradation};
   }
 `;
 
@@ -132,18 +133,6 @@ const SortList = (props: Props) => {
       </Inner>
     </Wrap>
   );
-};
-
-SortList.defaultProps = {
-  categorys: [
-    'ALL',
-    'MUSIC',
-    'LIVE',
-    'SPOT'
-  ],
-  current: '',
-  linkName: '',
-  onClick: () => null
 };
 
 export default SortList;
